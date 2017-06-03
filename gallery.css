@@ -1,0 +1,466 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+} body.noscroll {
+	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+} ::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+} ::-webkit-scrollbar-thumb {
+	background: #555555;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	transition: 0.2s;
+} ::-webkit-scrollbar-thumb:hover {
+	background: #333333;
+}
+
+text {
+} ::-webkit-input-placeholder {
+	color: white !important;
+} :-moz-placeholder {
+	color: white !important;
+} ::-moz-placeholder {
+	color: white !important;
+} :-ms-input-placeholder {
+	color: white !important;
+}
+
+/*********************************editor view***********************************/
+
+#button-container{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+#download-all-button, #waiting-for-approval-button, #edit-view-button {
+	transition: all 0.2s;
+	border: 1px solid black;
+	color: white;
+	background-color: black;
+	margin-right: 10px;
+} #download-all-button:hover, #waiting-for-approval-button:hover, #edit-view-button:hover {
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+}
+
+.download-button {
+	margin: 0;
+	display: block;
+	width: 100%;
+	height: auto;
+	line-height: 32px;
+} .download-button:link, .download-button:visited {
+	text-decoration: none;
+	color: white
+}
+
+.editor-grid {
+	width: 100%;
+	height: 250px;
+	border: 1px solid #E6E6E6;
+	transition: all 0.2s;
+	margin-bottom: 20px;
+} .editor-grid:hover {
+	background-color: #E6E6E6;
+	box-shadow: 0px 0px 10px #888888;
+} 
+
+.editor-photo-container {
+	height: 230px;
+	position: relative;
+	margin: 10px;
+}
+
+.editor-photo {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+@media (max-width: 767px){
+	.editor-grid {
+		height: auto;
+	} .editor-photo-container {
+		height: 150px;
+	}
+}
+
+input[type="text"], textarea {
+	border: none;
+	outline: 0;
+	padding: 5px;
+	resize: none;
+	background-color: transparent;
+	transition: all 0.2s ease-in-out;
+} input[type="text"]:hover, textarea:hover {
+	background-color: white;
+	cursor: pointer;
+} input[type="text"]:focus, textarea:focus {
+	background-color: #F8F8F8;
+	box-shadow: inset 0px -3px 0px black;
+	cursor: text;
+} input[type="text"] {
+	width: 100px;
+} textarea {
+	width: 100%;
+}
+
+.editor-view-name {
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+#back-to-top {
+	position: fixed;
+	right: 5px;
+	bottom: 50px;
+	z-index: 99;
+	display: none;
+	font-size: 20px;
+	border-radius: 3px;
+	border: none;
+	outline: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	cursor: pointer;
+	padding: 10px 15px;
+	transition: all 0.2s;
+} #back-to-top:hover {
+	background-color: black;
+}
+
+.btn.btn-success, .btn.btn-default, .btn.btn-danger {
+	transition: all 0.2s;
+} .btn.btn-success:focus, .btn.btn-default:focus, .btn.btn-danger:focus {
+	outline: 0;
+} 
+
+.approve-container {
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #E6E6E6;
+	transition: all 0.2s;
+	cursor: default;
+} .approve-container:hover {
+	background-color: #E6E6E6;
+	box-shadow: 0px 0px 10px #888888;
+}
+
+.approve-photo {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	transition: all 0.2s;
+}
+
+.approve-photo-container {
+	width: 100%;
+	height: 150px;
+	position: relative;
+}
+
+.edit-photo-container {
+	width: 100%;
+	height: 230px;
+	position: relative;
+}
+
+.edit-photo {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	transition: all 0.2s;
+}
+
+/*********************************editor checkbox***********************************/
+
+input[type="checkbox"][id^="image-checkbox"] {
+	display: none;
+} label {
+	height: 100%;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.2s;
+} label:before {
+	color: white;
+	content: "";
+	display: block;
+	border-radius: 50%;
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	width: 30px;
+	height: 30px;
+	font-size: 24px;
+	text-align: center;
+	line-height: 30px;
+	transform: scale(0);
+	transition: all 0.2s;
+	z-index: 1;
+} :hover + label:before {
+	content: "";
+	background: rgba(150, 150, 150, 0.8);
+	transform: scale(1);
+}:checked + label:before {
+	content: "✓";
+	background: #30BB55;
+	transform: scale(1);
+} :checked + label img {
+	transform: scale(0.9);
+	box-shadow: 0 0 5px #333;
+	-webkit-filter: brightness(60%);
+}
+
+/*********************************public view***********************************/
+
+#navigation {
+	background-color: black;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	padding-right: 0;
+	z-index: 50;
+}
+
+#site-name {
+	color: white;
+	line-height: 60px;
+	margin-left: 10px;
+	letter-spacing: 2px;
+	font-size: 20px;
+	display: block;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.navbar-right {
+	border: none;
+	margin: 13px;
+	padding: 0;
+}
+
+#myNavbar {
+	padding-right: 0;
+}
+
+#upload-button {
+	margin-right: 10px;
+	transition: all 0.2s;
+	border: 1px solid white;
+	color: white;
+	background-color: black;
+} #upload-button:hover {
+	background-color: white;
+	color: black;
+}
+
+.form-control {
+	border: 1px solid white;
+	color: white;
+	background-color: black;
+} .form-control:focus {
+	border: 1px solid white;
+}
+
+#search-bar {
+	width: 120px;
+	transition: all 0.2s;
+} 
+
+#search-button {
+	outline: 0;
+	color: white;
+	background-color: black;
+	border: 1px solid white;
+	transition: all 0.2s;
+} #search-button:hover, #search-button:focus {
+	background-color: white;
+	color: black;
+}
+
+.dropdown-toggle {
+	margin-left: 10px !important;
+	background-color: black;
+	color: white;
+	border: 1px solid white;
+	transition: all 0.2s;
+} .dropdown-toggle:hover, .dropdown-toggle:focus {
+	background-color: white !important;
+	border: 1px solid white !important;
+	color: black;
+}
+
+.dropdown-menu {
+	margin-top: 15px;
+	border: none;
+	background-color: black;
+} .dropdown-menu a {
+	color: white !important;
+} .dropdown-menu a:hover {
+	color: black !important;
+}
+
+@media (max-width: 767px){
+	#upload-button {
+		display: block;
+		width: 100%;
+		letter-spacing: 2px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	} #search-bar {
+		width: auto;
+	} .dropdown-toggle {
+		display: none;
+	} .dropdown-menu {
+		display: block;
+		margin-top: 30px;
+		position: relative;
+	} #myNavbar {
+		margin-right: 15px; 
+	}
+}
+
+.navbar-toggle {
+	color: white;
+	background-color: transparent;
+	letter-spacing: 2px;
+	font-size: 20px;
+	border-radius: 0px;
+	transition: 0.2s;
+}
+
+.public-photo-container {
+	width: 100%;
+	height: 150px;
+	position: relative;
+}
+
+.grid-container {
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #E6E6E6;
+	transition: all 0.2s;
+} .grid-container:hover {
+	background-color: #E6E6E6;
+	box-shadow: 0px 0px 10px #888888;
+	cursor: pointer;
+}
+
+.col-sm-3 {
+	padding: 0;
+}
+
+.photo {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.text {
+	margin: 10px;
+	text-align: center;
+}
+
+#footer {
+	height: 300px;
+	line-height: 80px;
+	margin-top: 50px;
+	color: white;
+	background-color: black;
+	text-align: center;
+}
+
+/*********************************lightbox***********************************/
+
+#lightbox-container {
+	display: none;
+	position: fixed;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	z-index: 99;
+	background-color: rgba(100, 100, 100, 0.8);
+}
+
+#lightbox {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+#lightbox-photo-container {
+	position: relative;
+}
+
+#lightbox-photo {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	border: 20px solid transparent;
+	border-bottom: 0px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#lightbox-text {
+	color: white;
+	text-align: center;
+	padding: 0px 20px 20px 20px;
+	line-height: 20px;
+}
+
+#close-lightbox, #left-lightbox, #right-lightbox {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 30px;
+	background: rgba(0, 0, 0, 0.5);
+	transition: background 0.2s;
+	transition: color 0.2s;
+	position: absolute;
+} #close-lightbox:hover, #left-lightbox:hover, #right-lightbox:hover {
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	cursor: pointer;
+} #close-lightbox {
+	top: 0;
+	right: 0;
+	padding: 10px;
+} #left-lightbox, #right-lightbox {
+	padding: 50px 10px;
+}

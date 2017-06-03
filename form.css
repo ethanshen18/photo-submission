@@ -1,0 +1,274 @@
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6, button, input, textarea {
+    font-family: 'Raleway', sans-serif;
+} ::-webkit-input-placeholder {
+    font-family: 'Raleway', sans-serif;
+} :-moz-placeholder {
+    font-family: 'Raleway', sans-serif;
+} ::-moz-placeholder {
+    ffont-family: 'Raleway', sans-serif;
+} :-ms-input-placeholder {
+    font-family: 'Raleway', sans-serif;
+}
+
+form {
+	max-width: 480px;
+	margin: 10px auto;
+	width: 95%;
+}
+
+h1 {
+	margin: 30px 0 50px 0;
+	text-align: center;
+	letter-spacing: 2px;
+	font-weight: 200;
+}
+
+input[type="text"], textarea {
+	border: none;
+	font-size: 16px;
+	outline: 0;
+	padding: 15px;
+	width: 100%;
+	margin-bottom: 20px;
+	-webkit-appearance: none;
+	-webkit-box-shadow: inset 0px -1px 0px #BABABA;
+	box-shadow: inset 0px -1px 0px #BABABA;
+	resize: none;
+	display: block;
+	transition: box-shadow 0.2s ease-in-out;
+} input[type="text"]:focus, textarea:focus {
+	box-shadow: inset 0px -3px 0px #4BC970;
+}
+
+.error {
+	color: red;
+	font-size: 16px;
+}
+
+#file-input-wrapper {
+	position: relative;
+} #file-input-wrapper > input[type="file"] {
+	opacity: 0;
+	height: 95%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+} #file-input-wrapper > #upload-button {
+	display: inline-block;
+}
+
+.checkbox {
+	-webkit-appearance: none;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	border: 1px solid #BABABA;
+	padding: 12px;
+	border-radius: 5px;
+	margin-right: 15px;
+	outline: 0;
+	display: inline-block;
+	vertical-align: bottom;
+	transition: all 0.2s;
+	cursor: pointer;
+	position: relative;
+} .checkbox:checked {
+	border: 1px solid #4BC970;
+	background-color: #4BC970;
+} .checkbox:checked:after {
+	content: '\2714';
+	font-size: 18px;
+	position: absolute;
+	top: 0px;
+	left: 5px;
+	color: white;
+} #checkbox-container {
+	display: table-cell;
+} #copyright {
+	display: table-cell;
+	vertical-align: top;
+	font-size: 16px;
+} @media (max-width: 470px) {
+	.checkbox:checked:after {
+		font-size: 12px;
+		left: 3px;
+	}
+}
+
+.radio-text {
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid #BABABA;
+  font-size: 16px;
+  transition: all 0.2s;
+} input.radio:empty {
+	margin-left: -99999px;
+} input.radio:empty ~ .radio-text {
+	position: relative;
+	float: left;
+	line-height: 2.5em;
+	text-indent: 4em;
+	margin-left: 10%;
+	margin-bottom: 20px;
+	cursor: pointer;
+} input.radio:empty ~ .radio-text:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	transition: background 0.2s;
+	background: #BABABA;
+} input.radio:hover:not(:checked) ~ .radio-text:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: white;
+} input.radio:hover:not(:checked) ~ .radio-text {
+	color: #888;
+} input.radio:checked ~ .radio-text:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: white;
+	background-color: #4BC970;
+} input.radio:checked ~ .radio-text {
+	border: 1px solid #4BC970;
+	color: #4BC970;
+} @media (max-width: 470px) {
+	.radio-text {
+		width: 100px;
+		font-size: 12px;
+	}input.radio:checked ~ .radio-text:before {
+		text-indent: .5em;
+	} input.radio:hover:not(:checked) ~ .radio-text:before {
+		text-indent: .5em;
+	}
+}
+
+#upload-button {
+	font-size: 16px;
+	letter-spacing: 2px;
+	border-radius: 2px;
+	width: 100%;
+	padding: 30px;
+	background-color: #4BC970;
+	border: 1px solid #4BC970;
+	color: white;
+	outline: 0;
+	transition: all 0.2s;
+} input[type="file"] {
+	cursor: pointer;
+} input[type="file"]:hover + #upload-button, input[type="file"]:focus + #upload-button {
+	text-decoration: none;
+	color: #0C5;
+	border-color: #0C5;
+	background: white;
+} #upload-button span {
+	display: inline-block;
+	position: relative;
+	transition: padding-right 0.5s;
+} #upload-button span:after {
+	content: ' ';
+	position: absolute;
+	top: 0;
+	right: -18px;
+	opacity: 0;
+	width: 10px;
+	height: 10px;
+	margin-top: -5px;
+	border: 3px solid white;
+	border-top: none;
+	border-right: none;
+	transition: opacity 0.5s, top 0.5s, right 0.5s;
+	transform: rotate(135deg);
+} input[type="file"]:hover + #upload-button span, input[type="file"]:focus + #upload-button span {
+	padding-right: 30px;
+} input[type="file"]:hover + #upload-button span:after, input[type="file"]:focus + #upload-button span:after {
+	transition: opacity 0.5s, top 0.5s, right 0.5s;
+	opacity: 1;
+	border-color: #0C5;
+	right: 0;
+	top: 50%;
+}
+
+.form-buttons {
+	font-size: 16px;
+	letter-spacing: 2px;
+	border-radius: 2px;
+	text-align: center;
+	border: none;
+	outline: 0;
+	position: relative;
+	margin-bottom: 20px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+} #submit-button {
+	color: white;
+	padding: 30px;
+	width: 100%;
+	border: 1px solid #4BC970;
+	background-color: #4BC970;
+} #submit-button:hover, #submit-button:focus {
+	color: #4BC970;
+	background-color: white;
+} #view-button {
+	padding: 20px;
+	width: 48%;
+	float: left;
+	margin-bottom: 60px;
+	color: white;
+	border: 1px solid #BABABA;
+	background-color: #BABABA;
+} #view-button:hover, #view-button:focus {
+	color: #BABABA;
+	background-color: white;
+} #reset-button {
+	padding: 20px;
+	width: 48%;
+	float: right;
+	margin-bottom: 60px;
+	color: white;
+	border: 1px solid #BABABA;
+	background-color: #BABABA;
+} #reset-button:hover, #reset-button:focus {
+	color: #BABABA;
+	background-color: white;
+}
+
+fieldset, legend {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	border: none;
+	line-height: 24px;
+	font-size: 24px;
+}
+
+.number {
+	background-color: #5fcf80;
+	color: white;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 22px;
+	margin-right: 10px;
+	text-align: center;
+	border-radius: 100%;
+}
