@@ -37,7 +37,7 @@ if ($isEditor) {
 if ($isEditor) {
 	if (!empty($_GET["view"]) && cleanData($_GET["view"]) == "edit") $view = "edit";
 	if (!empty($_GET["view"]) && cleanData($_GET["view"]) == "approval") $view = "approval";
-} // if
+} // if 
 
 // show grids
 displayThumbnails($sort, $search, $display, $isEditor, $view);

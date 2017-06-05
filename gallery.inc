@@ -55,6 +55,22 @@
 				</form>
 			</div>
 		</div>
+		
+		<div class="container-fluid" id="delete-bar">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse">
+				</button>
+				<span id="delete-header"><i class="glyphicon glyphicon-picture"></i> MODIFY IMAGE </span>
+			</div>
+			<div class="collapse navbar-collapse">
+				<div class="navbar-right">
+					<button class="btn btn-default" onclick="deleteMultipleImages()" name="delete" value="delete"><i class="glyphicon glyphicon-trash"></i></button>
+					<button class="btn btn-default" onclick="approveMultipleImages()"name="approve" value="approve"><i class="glyphicon glyphicon-ok"></i></button>
+					<button class="btn btn-default" id="cancel" onclick="closeNav();"><i class="glyphicon glyphicon-remove"></i></button>
+				</div>
+			
+			</div>
+		</div>
 
 		<div id="lightbox-container">
 			<div id="lightbox">

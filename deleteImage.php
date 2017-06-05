@@ -1,6 +1,5 @@
 <?php
 
-// delete image and thumbnail
 unlink("uploads/" . $_GET["src"]);
 unlink("thumbnails/thumb_" . $_GET["src"]);
 
@@ -10,10 +9,27 @@ $jsonString = "";
 foreach ($jsonArray as $line) $jsonString .= $line;
 $phparray = json_decode($jsonString, true);
 
+// delete image and thumbnail
+// if(isset($_POST["delete"]) && $_POST["delete"] == "delete"){
+		// if(!empty($_POST["checkBox"])){
+			// foreach($_POST["checkBox"] as $img){
+				// unlink("uploads/" . $img);
+				// unlink("thumbnails/thumb_" . $img);
+				// for ($i = 0; $i < sizeof($phparray); $i++){
+					// if ($phparray [$i] ["fileToUpload"] == $img) 
+					// unset($phparray [$i]);
+				// } // for
+			// } // foreach
+		// } // if
+// } else {
+
+	
+
 // delete image
 for ($i = 0; $i < sizeof($phparray); $i++)
 	if ($phparray [$i] ["fileToUpload"] == $_GET["src"]) 
-		unset($phparray [$i]);
+		unset($phparray [$i]);	
+// } // if
 
 // reindex php array
 $phparray = array_values($phparray);

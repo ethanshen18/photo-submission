@@ -38,6 +38,26 @@ text {
 }
 
 /*********************************editor view***********************************/
+#delete-bar {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	padding-right: 0;
+	background-color: white;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#delete-header{
+	color: black;
+	line-height: 60px;
+	margin-left: 10px;
+	letter-spacing: 2px;
+	font-size: 20px;
+	display: block;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
 
 #button-container{
 	width: 100%;
@@ -239,7 +259,7 @@ input[type="checkbox"][id^="image-checkbox"] {
 	transform: scale(0.9);
 	box-shadow: 0 0 5px #333;
 	-webkit-filter: brightness(60%);
-}
+} 
 
 /*********************************public view***********************************/
 
@@ -269,7 +289,7 @@ input[type="checkbox"][id^="image-checkbox"] {
 	padding: 0;
 }
 
-#myNavbar {
+#myNavbar{
 	padding-right: 0;
 }
 

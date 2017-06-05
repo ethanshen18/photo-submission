@@ -226,6 +226,7 @@ function editorNavbar($view) {
 
 		// edit button
 		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Edit Approved Images</a>";
+		
 	} // if else
 
 	// end button section
@@ -236,8 +237,8 @@ function editorNavbar($view) {
 function editMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
 	echo "<div class='editor-grid'>
 			<div class='col-sm-4' style=\"padding: 10px\">
-				<div class=\"edit-photo-container\">
-					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\">
+				<div class=\"edit-photo-container\" onclick=\"modified()\" name=\"checkBox\" value=\'". $original ."\'>
+					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\">
 					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"edit-photo\"></label>
 				</div>
 			</div>
@@ -277,9 +278,9 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 // generate editor gallery
 function approvalMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
 	echo "<div class=\"col-sm-3\">
-			<div class=\"approve-container\" value=\"". $original ."\" approved=\"true\">
+			<div class=\"approve-container\" name=\"checkBox\" value=\"". $original ."\" approved=\"true\" onclick=\"modified()\">
 				<div class=\"approve-photo-container\">
-					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\">
+					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class = \"check\">
 					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"approve-photo\"></label>
 				</div>
 

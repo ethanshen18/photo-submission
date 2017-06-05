@@ -193,7 +193,7 @@ function backToTopVisibility() {
 
 // approve image button
 function approveImage (src) {
-
+	
 	// use ajax to call delete image function
 	$.ajax({
 		url: "approveImage.php",
@@ -201,15 +201,46 @@ function approveImage (src) {
 		type: "GET",
 		success: function(data){
 			document.location.reload(true);
+			alert("hey!");
 		} // success
 	}); // ajax
 } // approveImage
 
+// approve multiple images at once
+function approveMultipleImages () {
+	
+	var checkArray = document.getElementsByClassName("check");
+	var source = document.getElementsByName("checkBox");
+	var array = new Array (checkArray.length);
+	
+	for (var i = 0; i < checkArray.length; i++){
+		if(checkArray[i].checked){	
+			for (var j = 0; j < array.length; j++){
+				array[j] = source[i].value;
+				alert(array[j]);
+				break;
+			} // for
+		} // if
+	} // for
+	
+	// use ajax to call delete image function
+	$.ajax({
+		url: "approveMultipleImages.php",
+		data: { src: array },
+		type: "GET",
+		success: function(data){
+			document.location.reload(true);
+			alert("hey!");
+		} // success
+	}); // ajax
+	
+} // approveMultipleImages
+
 // delete image button
 function deleteImage (src) {
-
+	
 	// delete confirmation
-	if (confirm("Permanently Delete " + src + "?") == false) return;
+	if (confirm("Permanently Delete Image(s)?") == false) return;
 
 	// use ajax to call delete image function
 	$.ajax({
@@ -220,4 +251,60 @@ function deleteImage (src) {
 			document.location.reload(true);
 		} // success
 	}); // ajax
+	
 } // deleteImage
+
+// delete multiple images at once
+function deleteMultipleImages (){
+	
+	// delete confirmation
+	if (confirm("Permanently Delete?") == false) return;
+	
+	var checkArray = document.getElementsByClassName("check");
+	var source = document.getElementsByName("checkBox");
+	var array = new Array (checkArray.length);
+	
+	for (var i = 0; i < checkArray.length; i++){
+		if(checkArray[i].checked){	
+			for (var j = 0; j < array.length; j++){
+				array[j] = source[i].value;
+				alert(array[j]);
+				break;
+			} // for
+		} // if
+	} // for
+	
+	// use ajax to call delete image unction
+	$.ajax({
+		url: "deleteMultipleImages.php",
+		data: { src: array },
+		type: "GET",
+		success: function(data){
+			document.location.reload(true);
+			alert("HOIIIIIII");
+		} // success
+	}); // ajax
+	
+} // deleteMultipleImages
+
+// close "modify image" navbar when user requests it
+function closeNav(){
+	document.getElementById("delete-bar").style.display = "none";
+} // closeNav
+
+// determines if the user checked on checkboxes or not 
+function modified(){
+	var isChecked = document.getElementsByClassName("check");
+	var displayBar = document.getElementById("delete-bar");
+	
+	for (var i = 0; i < isChecked.length; i++){
+		if (isChecked[i].checked){
+			displayBar.style.display = "block";
+			displayBar.style.zIndex = "99";
+			break;
+		} else {
+			displayBar.style.display = "none";
+		} // if
+	} // for
+
+} // modified
