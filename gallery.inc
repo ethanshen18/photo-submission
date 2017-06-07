@@ -56,19 +56,18 @@
 			</div>
 		</div>
 		
-		<div class="container-fluid" id="delete-bar">
+		<div class="container-fluid" id="selection-navbar">
 			<div class="navbar-header">
 				<button class="navbar-toggle" data-toggle="collapse">
 				</button>
-				<span id="delete-header"><i class="glyphicon glyphicon-picture"></i> MODIFY IMAGE </span>
+				<span id="selection-header"><i class="glyphicon glyphicon-check"></i> SELECTION</span>
 			</div>
 			<div class="collapse navbar-collapse">
 				<div class="navbar-right">
-					<button class="btn btn-default" onclick="deleteMultipleImages()" name="delete" value="delete"><i class="glyphicon glyphicon-trash"></i></button>
-					<button class="btn btn-default" onclick="approveMultipleImages()"name="approve" value="approve"><i class="glyphicon glyphicon-ok"></i></button>
+					<button class="btn btn-default" onclick="deleteSelection()" name="delete" value="delete"><i class="glyphicon glyphicon-trash"></i></button>
+					<button class="btn btn-default" onclick="approveSelection()"name="approve" value="approve"><i class="glyphicon glyphicon-ok"></i></button>
 					<button class="btn btn-default" id="cancel" onclick="closeNav();"><i class="glyphicon glyphicon-remove"></i></button>
 				</div>
-			
 			</div>
 		</div>
 

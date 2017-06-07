@@ -201,13 +201,29 @@ function approveImage (src) {
 		type: "GET",
 		success: function(data){
 			document.location.reload(true);
-			alert("hey!");
 		} // success
 	}); // ajax
 } // approveImage
 
+// delete image button
+function deleteImage (src) {
+	
+	// delete confirmation
+	if (confirm("Permanently Delete Image(s)?") == false) return;
+
+	// use ajax to call delete image function
+	$.ajax({
+		url: "deleteImage.php",
+		data: { src: src },
+		type: "GET",
+		success: function(data){
+			document.location.reload(true);
+		} // success
+	}); // ajax
+} // deleteImage
+
 // approve multiple images at once
-function approveMultipleImages () {
+function approveSelection () {
 	
 	var checkArray = document.getElementsByClassName("check");
 	var source = document.getElementsByName("checkBox");
@@ -225,7 +241,7 @@ function approveMultipleImages () {
 	
 	// use ajax to call delete image function
 	$.ajax({
-		url: "approveMultipleImages.php",
+		url: "approveSelection.php",
 		data: { src: array },
 		type: "GET",
 		success: function(data){
@@ -233,29 +249,10 @@ function approveMultipleImages () {
 			alert("hey!");
 		} // success
 	}); // ajax
-	
-} // approveMultipleImages
-
-// delete image button
-function deleteImage (src) {
-	
-	// delete confirmation
-	if (confirm("Permanently Delete Image(s)?") == false) return;
-
-	// use ajax to call delete image function
-	$.ajax({
-		url: "deleteImage.php",
-		data: { src: src },
-		type: "GET",
-		success: function(data){
-			document.location.reload(true);
-		} // success
-	}); // ajax
-	
-} // deleteImage
+} // approveSelection
 
 // delete multiple images at once
-function deleteMultipleImages (){
+function deleteSelection (){
 	
 	// delete confirmation
 	if (confirm("Permanently Delete?") == false) return;
@@ -276,7 +273,7 @@ function deleteMultipleImages (){
 	
 	// use ajax to call delete image unction
 	$.ajax({
-		url: "deleteMultipleImages.php",
+		url: "deleteSelection.php",
 		data: { src: array },
 		type: "GET",
 		success: function(data){
@@ -284,27 +281,25 @@ function deleteMultipleImages (){
 			alert("HOIIIIIII");
 		} // success
 	}); // ajax
-	
-} // deleteMultipleImages
+} // deleteSelection
 
-// close "modify image" navbar when user requests it
+// deselect all
 function closeNav(){
-	document.getElementById("delete-bar").style.display = "none";
+	document.getElementById("selection-navbar").style.display = "none";
+
+	/////////deselect all
+
 } // closeNav
 
 // determines if the user checked on checkboxes or not 
-function modified(){
+function selected(){
 	var isChecked = document.getElementsByClassName("check");
-	var displayBar = document.getElementById("delete-bar");
+	var displayBar = document.getElementById("selection-navbar");
 	
 	for (var i = 0; i < isChecked.length; i++){
 		if (isChecked[i].checked){
 			displayBar.style.display = "block";
-			displayBar.style.zIndex = "99";
 			break;
-		} else {
-			displayBar.style.display = "none";
-		} // if
+		} else displayBar.style.display = "none";
 	} // for
-
 } // modified

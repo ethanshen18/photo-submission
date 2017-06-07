@@ -7,7 +7,7 @@
         "tags": "hello, yes",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Ethan",
@@ -27,7 +27,7 @@
         "tags": "wall, health care",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Christopher",
@@ -37,7 +37,7 @@
         "tags": "inception, batman",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Harris",
@@ -47,7 +47,7 @@
         "tags": "turtle, green tea",
         "copyright": "on",
         "access": "private",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Terry",
@@ -77,7 +77,7 @@
         "tags": "backhand, handsome",
         "copyright": "on",
         "access": "private",
-        "approved": true
+        "approved": false
     },
     {
         "firstName": "Rafa",
@@ -127,7 +127,7 @@
         "tags": "yearbook, life",
         "copyright": "on",
         "access": "public",
-        "approved": true
+        "approved": false
     },
     {
         "firstName": "Chuck",
@@ -137,7 +137,7 @@
         "tags": "friend, cute",
         "copyright": "on",
         "access": "private",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Helen",
@@ -147,7 +147,7 @@
         "tags": "girl, nice hair",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Bradley",
@@ -157,7 +157,7 @@
         "tags": "teacher, hard, funny",
         "copyright": "on",
         "access": "private",
-        "approved": true
+        "approved": false
     },
     {
         "firstName": "Taylor",
@@ -195,6 +195,16 @@
         "fileToUpload": "5918259b9a05d.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "tags": "apple, genius",
+        "copyright": "on",
+        "access": "public",
+        "approved": false
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Image",
+        "fileToUpload": "59306d755d655.jpg",
+        "description": "This is a test image",
+        "tags": "hello, test, image",
         "copyright": "on",
         "access": "public",
         "approved": false

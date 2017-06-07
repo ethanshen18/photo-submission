@@ -237,7 +237,7 @@ function editorNavbar($view) {
 function editMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
 	echo "<div class='editor-grid'>
 			<div class='col-sm-4' style=\"padding: 10px\">
-				<div class=\"edit-photo-container\" onclick=\"modified()\" name=\"checkBox\" value=\'". $original ."\'>
+				<div class=\"edit-photo-container\" onclick=\"selected()\" name=\"checkBox\" value=\'". $original ."\'>
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\">
 					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"edit-photo\"></label>
 				</div>
@@ -278,7 +278,7 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 // generate editor gallery
 function approvalMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
 	echo "<div class=\"col-sm-3\">
-			<div class=\"approve-container\" name=\"checkBox\" value=\"". $original ."\" approved=\"true\" onclick=\"modified()\">
+			<div class=\"approve-container\" name=\"checkBox\" value=\"". $original ."\" approved=\"true\" onclick=\"selected()\">
 				<div class=\"approve-photo-container\">
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class = \"check\">
 					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"approve-photo\"></label>
