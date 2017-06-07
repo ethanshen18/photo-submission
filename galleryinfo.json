@@ -17,7 +17,7 @@
         "tags": "java, poker",
         "copyright": "on",
         "access": "private",
-        "approved": true
+        "approved": false
     },
     {
         "firstName": "Donald",
@@ -77,7 +77,7 @@
         "tags": "backhand, handsome",
         "copyright": "on",
         "access": "private",
-        "approved": true
+        "approved": false
     },
     {
         "firstName": "Rafa",
@@ -127,7 +127,7 @@
         "tags": "yearbook, life",
         "copyright": "on",
         "access": "public",
-        "approved": true
+        "approved": false
     },
     {
         "firstName": "Chuck",
@@ -157,7 +157,7 @@
         "tags": "teacher, hard, funny",
         "copyright": "on",
         "access": "private",
-        "approved": true
+        "approved": false
     },
     {
         "firstName": "Taylor",

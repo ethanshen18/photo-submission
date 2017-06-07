@@ -1,16 +1,16 @@
 <?php
 
-unlink("uploads/" . $_GET["src"]);
-unlink("thumbnails/thumb_" . $_GET["src"]);
-
 // load json into array
 $jsonArray = file("galleryinfo.json");
 $jsonString = "";
 foreach ($jsonArray as $line) $jsonString .= $line;
 $phparray = json_decode($jsonString, true);	
 
+// get size of phparray
+$arraysize = sizeof($phparray);
+
 // delete image
-for ($i = 0; $i < sizeof($phparray); $i++) {
+for ($i = 0; $i < $arraysize; $i++) {
 	for ($j = 0; $j < sizeof($_GET["src"]); $j++) {
 		if ($phparray [$i] ["fileToUpload"] == $_GET["src"] [$j]) {
 			unset($phparray [$i]);

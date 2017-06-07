@@ -6,8 +6,11 @@ $jsonString = "";
 foreach ($jsonArray as $line) $jsonString .= $line;
 $phparray = json_decode($jsonString, true);
 
+// get size of phparray
+$arraysize = sizeof($phparray);
+
 // approve image
-for ($i = 0; $i < sizeof($phparray); $i++) {
+for ($i = 0; $i < $arraysize; $i++) {
 	for ($j = 0; $j < sizeof($_GET["src"]); $j++) {
 		if ($phparray [$i] ["fileToUpload"] == $_GET["src"] [$j]) 
 		$phparray [$i] ["approved"] = true;
