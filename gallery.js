@@ -193,11 +193,13 @@ function backToTopVisibility() {
 
 // approve image button
 function approveImage (src) {
+
+	var selected = [src];
 	
 	// use ajax to call delete image function
 	$.ajax({
 		url: "approveImage.php",
-		data: { src: src },
+		data: { src: selected },
 		type: "GET",
 		success: function(data){
 			document.location.reload(true);
@@ -222,31 +224,59 @@ function deleteImage (src) {
 	}); // ajax
 } // deleteImage
 
+// select all
+function selectAll(){
+
+	// check all checkboxes
+	var checkArray = document.getElementsByClassName("check");
+	for (var i = 0; i < checkArray.length; i++) checkArray[i].checked = true;
+
+	// update selection number
+	selected();
+} // selectAll
+
+// deselect all
+function deselectAll(){
+
+	// hide selection navbar
+	document.getElementById("selection-navbar").style.display = "none";
+
+	// uncheck all checkboxes
+	var checkArray = document.getElementsByClassName("check");
+	for (var i = 0; i < checkArray.length; i++) checkArray[i].checked = false;
+} // deselectAll
+
+// determines if the user checked on checkboxes or not 
+function selected(){
+	var checkArray = document.getElementsByClassName("check");
+	var displayBar = document.getElementById("selection-navbar");
+	var counter = 0; // number of selection
+
+	// find number of selection
+	for (var i = 0; i < checkArray.length; i++) if (checkArray[i].checked) counter++;
+
+	// display number of selection
+	if (counter != 0) {
+		document.getElementById("selection-count").innerHTML = counter;
+		displayBar.style.display = "block";
+	} else displayBar.style.display = "none";
+} // modified
+
 // approve multiple images at once
 function approveSelection () {
 	
+	// load selected image names into array
 	var checkArray = document.getElementsByClassName("check");
-	var source = document.getElementsByName("checkBox");
-	var array = new Array (checkArray.length);
-	
-	for (var i = 0; i < checkArray.length; i++){
-		if(checkArray[i].checked){	
-			for (var j = 0; j < array.length; j++){
-				array[j] = source[i].value;
-				alert(array[j]);
-				break;
-			} // for
-		} // if
-	} // for
+	var selected = [];
+	for (var i = 0; i < checkArray.length; i++) if(checkArray[i].checked) selected.push(checkArray[i].value);
 	
 	// use ajax to call delete image function
 	$.ajax({
-		url: "approveSelection.php",
-		data: { src: array },
+		url: "approveImage.php",
+		data: { src: selected },
 		type: "GET",
 		success: function(data){
 			document.location.reload(true);
-			alert("hey!");
 		} // success
 	}); // ajax
 } // approveSelection
@@ -255,51 +285,20 @@ function approveSelection () {
 function deleteSelection (){
 	
 	// delete confirmation
-	if (confirm("Permanently Delete?") == false) return;
-	
+	if (confirm("Permanently Delete All?") == false) return;
+
+	// load selected image names into array
 	var checkArray = document.getElementsByClassName("check");
-	var source = document.getElementsByName("checkBox");
-	var array = new Array (checkArray.length);
-	
-	for (var i = 0; i < checkArray.length; i++){
-		if(checkArray[i].checked){	
-			for (var j = 0; j < array.length; j++){
-				array[j] = source[i].value;
-				alert(array[j]);
-				break;
-			} // for
-		} // if
-	} // for
+	var selected = [];
+	for (var i = 0; i < checkArray.length; i++) if(checkArray[i].checked) selected.push(checkArray[i].value);
 	
 	// use ajax to call delete image unction
 	$.ajax({
-		url: "deleteSelection.php",
-		data: { src: array },
+		url: "deleteImage.php",
+		data: { src: selected },
 		type: "GET",
 		success: function(data){
 			document.location.reload(true);
-			alert("HOIIIIIII");
 		} // success
 	}); // ajax
 } // deleteSelection
-
-// deselect all
-function closeNav(){
-	document.getElementById("selection-navbar").style.display = "none";
-
-	/////////deselect all
-
-} // closeNav
-
-// determines if the user checked on checkboxes or not 
-function selected(){
-	var isChecked = document.getElementsByClassName("check");
-	var displayBar = document.getElementById("selection-navbar");
-	
-	for (var i = 0; i < isChecked.length; i++){
-		if (isChecked[i].checked){
-			displayBar.style.display = "block";
-			break;
-		} else displayBar.style.display = "none";
-	} // for
-} // modified
