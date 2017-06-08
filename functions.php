@@ -112,9 +112,6 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 	if (!empty($display) && $isEditor) echo "Access: " . $display . "<br>";
 	if (!empty($search)) echo "Results for: " . $search . "<br>";
 
-	// display editor buttons and messages
-	if ($isEditor) editorNavbar($view);
-
 	// load json into array
 	$jsonArray = file("galleryinfo.json");
 	$jsonString = "";
@@ -165,10 +162,14 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 		} else if (!empty($search) && !in_array($search, $tagCheck)) {
 			unset($phparraySorted [$i]);
 		} // if
+		
 	} // for
 
 	// reindex array
 	$phparraySorted = array_values($phparraySorted);
+	
+	// display editor buttons and messages
+	if ($isEditor) editorNavbar($view);
 
 	// transfer current gallery content as json array to javascript
 	echo "<pre id='current-array' style='display: none'>";
@@ -204,7 +205,7 @@ function publicGallery($original, $thumbName, $firstName, $lastName, $descriptio
 
 // show editor buttons and messages
 function editorNavbar($view) {
-
+	
 	// Editor View
 	if ($view == "edit") echo "<h3><i class=\"glyphicon glyphicon-pencil\"></i> Edit Mode</h3><br><br>";
 	if ($view == "approval") echo "<h3><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval</h3><br><br>";
@@ -218,14 +219,15 @@ function editorNavbar($view) {
 		// waiting for approval button
 		echo "<a href=\"#\" onclick=\"addToURL('view', 'approval'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"waiting-for-approval-button\"><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval</a>";
 
-		// download all button
-		echo "<a href=\"#\" onclick=\"return false;\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
-
 	// approval view
 	} else if ($view == "approval") {
 
 		// edit button
 		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Edit Approved Images</a>";
+		
+		// download all button
+		echo "<a href=\"#\" onclick=\"downloadAll();\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
+
 		
 	} // if else
 

@@ -481,14 +481,14 @@ input[type="checkbox"][id^="image-checkbox"] {
 	line-height: 20px;
 }
 
-#close-lightbox, #left-lightbox, #right-lightbox {
+#close-lightbox, #left-lightbox, #right-lightbox, #download-button-lightbox {
 	color: rgba(255, 255, 255, 0.5);
 	font-size: 30px;
 	background: rgba(0, 0, 0, 0.5);
 	transition: background 0.2s;
 	transition: color 0.2s;
 	position: absolute;
-} #close-lightbox:hover, #left-lightbox:hover, #right-lightbox:hover {
+} #close-lightbox:hover, #left-lightbox:hover, #right-lightbox:hover,  #download-button-lightbox:hover{
 	background: rgba(0, 0, 0, 0.8);
 	color: white;
 	cursor: pointer;
@@ -498,4 +498,13 @@ input[type="checkbox"][id^="image-checkbox"] {
 	padding: 10px;
 } #left-lightbox, #right-lightbox {
 	padding: 50px 10px;
+} #download-button-lightbox{
+	top: 0;
+	left: 0;
+	padding: 10px;
+	text-decoration: none;
+} 
+.glyphicon.glyphicon-download {
+    font-size: 50px;
+	padding: 10px;
 }

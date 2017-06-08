@@ -97,7 +97,11 @@ function showLightbox(image, firstName, lastName, description) {
 
 	// upload photo caption
 	document.getElementById("lightbox-text").innerHTML = "<b style='font-size: 20px; line-height: 50px;'>" + firstName + " " + lastName + "</b><br>" + description;
-
+	
+	document.getElementById("download-button-lightbox").href = "uploads/" + image;
+	
+	document.getElementById("download-button-lightbox").download = firstName + " " + lastName;
+	
 	// set lightbox size and reveal lightbox
 	$(function(){
 		setLightboxSize($(window).width(), $(window).height());
@@ -302,3 +306,27 @@ function deleteSelection (){
 		} // success
 	}); // ajax
 } // deleteSelection
+
+// download all images in album view
+function downloadAll(){
+	
+	// current gallery as json array
+	var json = JSON.parse(document.getElementById("current-array").innerHTML);
+	
+	var fileArray = [];
+	
+	for(var i = 0; i < json.length; i++){
+		fileArray[i] = json[i].fileToUpload;
+	} // for
+	
+	// use ajax to call delete image function
+	$.ajax({
+		url: "downloadAll.php",
+		data: { src: fileArray },
+		type: "GET",
+		success: function(data){
+			document.location.reload(true);
+			alert("Download Successful!\n\n" + data);
+		} // success
+	}); // ajax
+}

@@ -76,6 +76,7 @@
 			<div id="lightbox">
 				<div id="lightbox-photo-container">
 					<img src="#" id="lightbox-photo">
+					<a href="#" download="#" id="download-button-lightbox"><i class="glyphicon glyphicon-download"></i></a>
 					<i class="glyphicon glyphicon-remove" id="close-lightbox" onclick="closeLightbox()"></i>
 					<i class="glyphicon glyphicon-chevron-left" id="left-lightbox" onclick="showPrevious()"></i>
 					<i class="glyphicon glyphicon-chevron-right" id="right-lightbox" onclick="showNext()"></i>
