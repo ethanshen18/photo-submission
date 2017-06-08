@@ -226,7 +226,7 @@ function editorNavbar($view) {
 		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Edit Approved Images</a>";
 		
 		// download all button
-		echo "<a href=\"#\" onclick=\"downloadAll();\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
+		echo "<a href=\"downloadAll.php\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
 
 		
 	} // if else
