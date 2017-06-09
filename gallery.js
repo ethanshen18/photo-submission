@@ -292,14 +292,14 @@ function approveSelection() {
 
 // delete multiple images at once
 function deleteSelection(){
-	
-	// delete confirmation
-	if (confirm("Permanently Delete All?") == false) return;
 
 	// load selected image names into array
 	var checkArray = document.getElementsByClassName("check");
 	var selected = [];
 	for (var i = 0; i < checkArray.length; i++) if(checkArray[i].checked) selected.push(checkArray[i].value);
+
+	// delete confirmation
+	if (confirm("Permanently Delete All "+ selected.length +" Images?") == false) return;
 	
 	// use ajax to call delete image function
 	$.ajax({

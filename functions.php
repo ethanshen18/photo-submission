@@ -207,7 +207,7 @@ function publicGallery($original, $thumbName, $firstName, $lastName, $descriptio
 function editorNavbar($view) {
 	
 	// Editor View
-	if ($view == "edit") echo "<h3><i class=\"glyphicon glyphicon-pencil\"></i> Edit Mode</h3><br><br>";
+	if ($view == "edit") echo "<h3><i class=\"glyphicon glyphicon-pencil\"></i> Gallery Manager</h3><br><br>";
 	if ($view == "approval") echo "<h3><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval</h3><br><br>";
 
 	// button section
@@ -223,7 +223,7 @@ function editorNavbar($view) {
 	} else if ($view == "approval") {
 
 		// edit button
-		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Edit Approved Images</a>";
+		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Manage Gallery</a>";
 	} // if else
 
 	// download all button
@@ -233,7 +233,7 @@ function editorNavbar($view) {
 	echo "</div>";
 } // editorNavbar
 
-// generate editor gallery
+// editor gallery
 function editMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
 	echo "<div class='editor-grid' value='". $original ."'>
 			<div class='col-sm-4' style=\"padding: 10px\">
@@ -275,9 +275,9 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 				<button class =\"btn btn-success btn-block\" style=\"display: none; margin: 10px 0;\" onclick=\"save('". $original ."');\" >Save</button>
 			</div>
 		</div>";
-} // editorGallery
+} // editMode
 
-// generate editor gallery
+// waiting for approval gallery
 function approvalMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
 	echo "<div class=\"col-sm-3\">
 			<div class=\"approve-container\" name=\"checkBox\">
@@ -305,6 +305,6 @@ function approvalMode($original, $thumbName, $firstName, $lastName, $description
 				</div>
 			</div>
 		</div>";
-} // editorGallery
+} // approvalMode
 
 ?>

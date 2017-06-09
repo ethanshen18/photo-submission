@@ -64,9 +64,9 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<div class="navbar-right">
-					<button type="button" class="btn btn-success selection-button" onclick="approveSelection()" <?php if ($_GET["view"] != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-ok"></i> Approve (<span class="selection-count"></span>)</button>
-					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($_GET["view"] != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-remove"></i> Reject (<span class="selection-count"></span>)</button>
-					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($_GET["view"] != "edit") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-trash"></i> Delete Selected (<span class="selection-count"></span>)</button>
+					<button type="button" class="btn btn-success selection-button" onclick="approveSelection()" <?php if ($view != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-ok"></i> Approve (<span class="selection-count"></span>)</button>
+					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($view != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-remove"></i> Reject (<span class="selection-count"></span>)</button>
+					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($view != "edit") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-trash"></i> Delete Selected (<span class="selection-count"></span>)</button>
 					<button type="button" class="btn btn-default selection-button-black" onclick="selectAll();">Select All</button>
 					<button type="button" class="btn btn-default selection-button-black" onclick="deselectAll();">Deselect All</button>
 				</div>

@@ -10,13 +10,10 @@ $search = "";
 $display = "";
 
 // editor view
-$view = "edit";
+$view = "approval";
 
 // functions file
 include "functions.php";
-
-// display header
-include "gallery.inc";
 
 // update search parameter
 if (!empty($_POST["submit"]) && $_POST["submit"] == "submit" && !empty($_POST["search"])) $search = strtolower(cleanData($_POST["search"]));
@@ -38,6 +35,9 @@ if ($isEditor) {
 	if (!empty($_GET["view"]) && cleanData($_GET["view"]) == "edit") $view = "edit";
 	if (!empty($_GET["view"]) && cleanData($_GET["view"]) == "approval") $view = "approval";
 } // if 
+
+// display header
+include "gallery.inc";
 
 // show grids
 displayThumbnails($sort, $search, $display, $isEditor, $view);
