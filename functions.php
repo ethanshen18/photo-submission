@@ -227,7 +227,7 @@ function editorNavbar($view) {
 	} // if else
 
 	// download all button
-	echo "<a href=\"downloadAll.php\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
+	echo "<a href=\"download.php\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
 
 	// end button section
 	echo "</div>";
