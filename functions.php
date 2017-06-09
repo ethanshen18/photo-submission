@@ -187,7 +187,7 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 		$tags = $phparraySorted [$i] ["tags"];
 
 		// generate bootstrap grid
-		if ($isEditor && $view == "edit") editMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags);
+		if ($isEditor && $view == "edit") editMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags, $i);
 		else if ($isEditor && $view == "approval") approvalMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags);
 		else publicGallery($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description);
 	} // for
@@ -236,8 +236,8 @@ function editorNavbar($view) {
 } // editorNavbar
 
 // generate editor gallery
-function editMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
-	echo "<div class='editor-grid'>
+function editMode($original, $thumbName, $firstName, $lastName, $description, $tags, $number) {
+	echo "<div class='editor-grid' value='".$number."'>
 			<div class='col-sm-4' style=\"padding: 10px\">
 				<div class=\"edit-photo-container\" name=\"checkBox\">
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\" onclick=\"selected()\" value=\"". $original ."\">
@@ -247,24 +247,24 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 			<div class='col-sm-8'>
 				<div class='editor-view-name'>
 					<b>First Name: </b>
-					<input type='text' name='firstName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $firstName ."' disabled></input>
+					<input type='text' name='firstName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $firstName ."' disabled='' class = '".$number."'></input>
 				</div>
 				<div class='editor-view-name'>
 					<b>Last Name: </b>
-					<input type='text' name='lastName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $lastName ."' disabled></input>
+					<input type='text' name='lastName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $lastName ."' disabled='' class = '".$number."'></input>
 				</div>
 				<br>
 				<b>Description: </b><br>
-					<textarea name='description' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled>". $description ."</textarea><br>
+					<textarea name='description' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class = '".$number."'>". $description ."</textarea><br>
 				<b>Tags: </b><br>
-					<textarea name='tags' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled>". $tags ."</textarea>
+					<textarea name='tags' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class = '".$number."'>". $tags ."</textarea>
 
-				<div class=\"btn-group btn-group-justified\" role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\">
+				<div class=\"btn-group btn-group-justified\"  role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\" value='".$number."'>
 					<div class=\"btn-group\" role=\"group\">
 						<button class=\"btn btn-success\" style=\"padding: 0\"><a class=\"download-button\" href=\"uploads/". $original ."\" download=\"". $firstName ." ". $lastName ."\"><i class=\"glyphicon glyphicon-download-alt\"></i></a></button>
 					</div>
 					<div class=\"btn-group\" role=\"group\">
-						<button class=\"btn btn-default\" onclick=\" \"><i class=\"glyphicon glyphicon-pencil\"></i></button>
+						<button class=\"btn btn-default\" onclick=\"editInfo('".$number."');\"><i class=\"glyphicon glyphicon-pencil\"></i></button>
 					</div>
 					<div class=\"btn-group\" role=\"group\">
 						<button class=\"btn btn-default\" onclick=\"showLightbox('". $original ."', '". $firstName ."', '". $lastName ."', '". $description ."')\"><i class=\"glyphicon glyphicon-picture\"></i></button>
@@ -273,6 +273,8 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 						<button class=\"btn btn-danger\" onclick=\"deleteImage('". $original ."')\"><i class=\"glyphicon glyphicon-trash\"></i></button>
 					</div>
 				</div>
+				
+				<button class =\"btn btn-success btn-block\" style=\"display: none\" onclick = \"save('".$number."');\">Save</button>
 			</div>
 		</div>";
 } // editorGallery

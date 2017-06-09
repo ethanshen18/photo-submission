@@ -296,7 +296,7 @@ function deleteSelection (){
 	var selected = [];
 	for (var i = 0; i < checkArray.length; i++) if(checkArray[i].checked) selected.push(checkArray[i].value);
 	
-	// use ajax to call delete image unction
+	// use ajax to call delete image function
 	$.ajax({
 		url: "deleteImage.php",
 		data: { src: selected },
@@ -307,26 +307,71 @@ function deleteSelection (){
 	}); // ajax
 } // deleteSelection
 
-// download all images in album view
-function downloadAll(){
+// allows user to edit info of the edit box
+function editInfo(identifier){
+	var edit = document.getElementsByClassName(identifier);
+	var buttonGroup = document.getElementsByClassName("btn-group btn-group-justified");
 	
-	// current gallery as json array
-	var json = JSON.parse(document.getElementById("current-array").innerHTML);
+	var saveButton = document.getElementsByClassName("btn btn-success btn-block");
 	
-	var fileArray = [];
+	var editorGrid = document.getElementsByClassName("editor-grid");
+	var checkBox = document.getElementsByClassName("check");
 	
-	for(var i = 0; i < json.length; i++){
-		fileArray[i] = json[i].fileToUpload;
+	// allows user to edit user info
+	for (var i = 0; i < edit.length; i++){
+		edit[i].disabled = false;
 	} // for
 	
-	// use ajax to call delete image function
-	$.ajax({
-		url: "downloadAll.php",
-		data: { src: fileArray },
-		type: "GET",
-		success: function(data){
-			document.location.reload(true);
-			alert("Download Successful!\n\n" + data);
-		} // success
-	}); // ajax
-}
+	// disable contents
+	for (var i = 0; i < editorGrid.length; i++){
+		if(editorGrid[i].getAttribute("value") != identifier){
+			editorGrid[i].style.pointerEvents = "none"; 
+			editorGrid[i].style.opacity = "0.5";
+			//editorGrid[i].style.cursor = "not-allowed";
+			
+		} else {
+			checkBox[i].disabled = true;
+		} // if
+		
+	} // for
+	
+	// show save button 
+	for (var i = 0; i < buttonGroup.length; i++){
+		if(buttonGroup[i].getAttribute("value") == identifier){
+			buttonGroup[i].style.display = "none";
+			saveButton[i].style.display = "block";
+		} // if
+	} // for
+
+} // editInfo
+
+// revert back to original page stylizing after user edits info
+function save(identifier){
+	var edit = document.getElementsByClassName(identifier);
+	var buttonGroup = document.getElementsByClassName("btn-group btn-group-justified");
+	
+	var saveButton = document.getElementsByClassName("btn btn-success btn-block");
+	
+	var editorGrid = document.getElementsByClassName("editor-grid");
+	var checkBox = document.getElementsByClassName("check");
+	
+	// disable all texts 
+	for (var i = 0; i < edit.length; i++){
+		edit[i].disabled = true;
+	} // for
+	
+	// make all other contents accessible 
+	for (var i = 0; i < editorGrid.length; i++){
+			editorGrid[i].style.pointerEvents = "auto"; 
+			editorGrid[i].style.opacity = "1.0";
+			checkBox[i].disabled = false;
+			//editorGrid[i].style.cursor = "not-allowed";
+	} // for
+	
+	// show original button group and hide save button
+	for (var i = 0; i < buttonGroup.length; i++){
+			buttonGroup[i].style.display = "block";
+			saveButton[i].style.display = "none";
+	} // for
+	
+} // save
