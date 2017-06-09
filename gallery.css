@@ -498,13 +498,10 @@ input[type="checkbox"][id^="image-checkbox"] {
 	padding: 10px;
 } #left-lightbox, #right-lightbox {
 	padding: 50px 10px;
-} #download-button-lightbox{
-	top: 0;
-	left: 0;
-	padding: 10px;
-	text-decoration: none;
 } 
-.glyphicon.glyphicon-download {
-    font-size: 50px;
+
+#download-button-lightbox{
 	padding: 10px;
+	font-size: 30px;
+	transition: all 0.2s;
 }

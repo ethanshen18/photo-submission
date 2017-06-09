@@ -60,12 +60,13 @@
 			<div class="navbar-header">
 				<button class="navbar-toggle" data-toggle="collapse">
 				</button>
-				<span id="selection-header"><i class="glyphicon glyphicon-check"></i> <span id="selection-count"></span> SELECTED</span>
+				<span id="selection-header"><i class="glyphicon glyphicon-check"></i> <span class="selection-count"></span> SELECTED</span>
 			</div>
 			<div class="collapse navbar-collapse">
 				<div class="navbar-right">
-					<button type="button" class="btn btn-success selection-button" onclick="approveSelection()"><i class="glyphicon glyphicon-ok"></i></button>
-					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()"><i class="glyphicon glyphicon-remove"></i></button>
+					<button type="button" class="btn btn-success selection-button" onclick="approveSelection()" <?php if ($_GET["view"] != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-ok"></i> Approve (<span class="selection-count"></span>)</button>
+					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($_GET["view"] != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-remove"></i> Reject (<span class="selection-count"></span>)</button>
+					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($_GET["view"] != "edit") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-trash"></i> Delete Selected (<span class="selection-count"></span>)</button>
 					<button type="button" class="btn btn-default selection-button-black" onclick="selectAll();">Select All</button>
 					<button type="button" class="btn btn-default selection-button-black" onclick="deselectAll();">Deselect All</button>
 				</div>
@@ -76,7 +77,7 @@
 			<div id="lightbox">
 				<div id="lightbox-photo-container">
 					<img src="#" id="lightbox-photo">
-					<a href="#" download="#" id="download-button-lightbox"><i class="glyphicon glyphicon-download"></i></a>
+					<a href="#" download="#" id="download-button-lightbox" <?php if (!$isEditor) echo "style='display: none'"; ?>><i class="glyphicon glyphicon-download"></i></a>
 					<i class="glyphicon glyphicon-remove" id="close-lightbox" onclick="closeLightbox()"></i>
 					<i class="glyphicon glyphicon-chevron-left" id="left-lightbox" onclick="showPrevious()"></i>
 					<i class="glyphicon glyphicon-chevron-right" id="right-lightbox" onclick="showNext()"></i>

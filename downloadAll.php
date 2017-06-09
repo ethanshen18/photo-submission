@@ -6,7 +6,7 @@ $pathdir = "uploads/";
 $zipname = "images.zip";
 $zip = new ZipArchive();
 
-if ($zip->open($zipname, ZIPARCHIVE::OVERWRITE | ZipArchive::CREATE) == true){
+if ($zip->open($zipname, ZIPARCHIVE::OVERWRITE | ZipArchive::CREATE) == true) {
 	
 	$dir = opendir($pathdir);
 	while ($file = readdir($dir)){
@@ -71,8 +71,6 @@ if ($zip->open($zipname, ZIPARCHIVE::OVERWRITE | ZipArchive::CREATE) == true){
     // readfile($tmp_file);
 } else {
 
-} // if
-
-
+} // if else
 
 ?>

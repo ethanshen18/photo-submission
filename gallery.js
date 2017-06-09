@@ -198,11 +198,12 @@ function backToTopVisibility() {
 // approve image button
 function approveImage (src) {
 
+	// prepare image name for ajax request
 	var selected = [src];
 	
 	// use ajax to call delete image function
 	$.ajax({
-		url: "approveImage.php",
+		url: "approve.php",
 		data: { src: selected },
 		type: "GET",
 		success: function(data){
@@ -215,12 +216,15 @@ function approveImage (src) {
 function deleteImage (src) {
 	
 	// delete confirmation
-	if (confirm("Permanently Delete Image(s)?") == false) return;
+	if (confirm("Permanently Delete Image?") == false) return;
+
+	// prepare image name for ajax request
+	var selected = [src];
 
 	// use ajax to call delete image function
 	$.ajax({
-		url: "deleteImage.php",
-		data: { src: src },
+		url: "delete.php",
+		data: { src: selected },
 		type: "GET",
 		success: function(data){
 			document.location.reload(true);
@@ -254,6 +258,7 @@ function deselectAll(){
 function selected(){
 	var checkArray = document.getElementsByClassName("check");
 	var displayBar = document.getElementById("selection-navbar");
+	var displayedNumbers = document.getElementsByClassName("selection-count");
 	var counter = 0; // number of selection
 
 	// find number of selection
@@ -261,13 +266,13 @@ function selected(){
 
 	// display number of selection
 	if (counter != 0) {
-		document.getElementById("selection-count").innerHTML = counter;
+		for (var i = 0; i < displayedNumbers.length; i++) displayedNumbers [i].innerHTML = counter;
 		displayBar.style.display = "block";
 	} else displayBar.style.display = "none";
 } // modified
 
 // approve multiple images at once
-function approveSelection () {
+function approveSelection() {
 	
 	// load selected image names into array
 	var checkArray = document.getElementsByClassName("check");
@@ -276,17 +281,17 @@ function approveSelection () {
 	
 	// use ajax to call delete image function
 	$.ajax({
-		url: "approveImage.php",
+		url: "approve.php",
 		data: { src: selected },
 		type: "GET",
-		success: function(data){
+		success: function(data) {
 			document.location.reload(true);
 		} // success
 	}); // ajax
 } // approveSelection
 
 // delete multiple images at once
-function deleteSelection (){
+function deleteSelection(){
 	
 	// delete confirmation
 	if (confirm("Permanently Delete All?") == false) return;
@@ -298,46 +303,37 @@ function deleteSelection (){
 	
 	// use ajax to call delete image function
 	$.ajax({
-		url: "deleteImage.php",
+		url: "delete.php",
 		data: { src: selected },
 		type: "GET",
-		success: function(data){
+		success: function(data) {
 			document.location.reload(true);
 		} // success
 	}); // ajax
 } // deleteSelection
 
 // allows user to edit info of the edit box
-function editInfo(identifier){
-	var edit = document.getElementsByClassName(identifier);
+function editInfo(original) {
+	var edit = document.getElementsByClassName(original);
 	var buttonGroup = document.getElementsByClassName("btn-group btn-group-justified");
-	
 	var saveButton = document.getElementsByClassName("btn btn-success btn-block");
-	
 	var editorGrid = document.getElementsByClassName("editor-grid");
 	var checkBox = document.getElementsByClassName("check");
 	
-	// allows user to edit user info
-	for (var i = 0; i < edit.length; i++){
-		edit[i].disabled = false;
-	} // for
+	// enable current input fields
+	for (var i = 0; i < edit.length; i++) edit[i].disabled = false;
 	
-	// disable contents
+	// disable other grids
 	for (var i = 0; i < editorGrid.length; i++){
-		if(editorGrid[i].getAttribute("value") != identifier){
+		if (editorGrid[i].getAttribute("value") != original){
 			editorGrid[i].style.pointerEvents = "none"; 
 			editorGrid[i].style.opacity = "0.5";
-			//editorGrid[i].style.cursor = "not-allowed";
-			
-		} else {
-			checkBox[i].disabled = true;
-		} // if
-		
+		} else checkBox[i].disabled = true;	
 	} // for
 	
 	// show save button 
 	for (var i = 0; i < buttonGroup.length; i++){
-		if(buttonGroup[i].getAttribute("value") == identifier){
+		if (buttonGroup[i].getAttribute("value") == original){
 			buttonGroup[i].style.display = "none";
 			saveButton[i].style.display = "block";
 		} // if
@@ -345,33 +341,28 @@ function editInfo(identifier){
 
 } // editInfo
 
-// revert back to original page stylizing after user edits info
-function save(identifier){
-	var edit = document.getElementsByClassName(identifier);
-	var buttonGroup = document.getElementsByClassName("btn-group btn-group-justified");
-	
-	var saveButton = document.getElementsByClassName("btn btn-success btn-block");
-	
-	var editorGrid = document.getElementsByClassName("editor-grid");
-	var checkBox = document.getElementsByClassName("check");
-	
-	// disable all texts 
-	for (var i = 0; i < edit.length; i++){
-		edit[i].disabled = true;
-	} // for
-	
-	// make all other contents accessible 
-	for (var i = 0; i < editorGrid.length; i++){
-			editorGrid[i].style.pointerEvents = "auto"; 
-			editorGrid[i].style.opacity = "1.0";
-			checkBox[i].disabled = false;
-			//editorGrid[i].style.cursor = "not-allowed";
-	} // for
-	
-	// show original button group and hide save button
-	for (var i = 0; i < buttonGroup.length; i++){
-			buttonGroup[i].style.display = "block";
-			saveButton[i].style.display = "none";
-	} // for
-	
+// enable other girds and hide save button
+function save(original) {
+
+	// get edited info
+	var newFirstName = document.getElementById(original + "-firstName").value;
+	var newLastName = document.getElementById(original + "-lastName").value;
+	var newDescription = document.getElementById(original + "-description").value;
+	var newTags = document.getElementById(original + "-tags").value;
+
+	// use ajax to modify json
+	$.ajax({
+		url: "modify.php",
+		data: {
+			target: original,
+			firstName: newFirstName,
+			lastName: newLastName,
+			description: newDescription,
+			tags: newTags
+		},
+		type: "GET",
+		success: function(data) {
+			document.location.reload(true);
+		} // success
+	}); // ajax
 } // save

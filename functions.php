@@ -187,7 +187,7 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 		$tags = $phparraySorted [$i] ["tags"];
 
 		// generate bootstrap grid
-		if ($isEditor && $view == "edit") editMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags, $i);
+		if ($isEditor && $view == "edit") editMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags);
 		else if ($isEditor && $view == "approval") approvalMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags);
 		else publicGallery($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description);
 	} // for
@@ -224,20 +224,18 @@ function editorNavbar($view) {
 
 		// edit button
 		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Edit Approved Images</a>";
-		
-		// download all button
-		echo "<a href=\"downloadAll.php\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
-
-		
 	} // if else
+
+	// download all button
+	echo "<a href=\"downloadAll.php\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
 
 	// end button section
 	echo "</div>";
 } // editorNavbar
 
 // generate editor gallery
-function editMode($original, $thumbName, $firstName, $lastName, $description, $tags, $number) {
-	echo "<div class='editor-grid' value='".$number."'>
+function editMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
+	echo "<div class='editor-grid' value='". $original ."'>
 			<div class='col-sm-4' style=\"padding: 10px\">
 				<div class=\"edit-photo-container\" name=\"checkBox\">
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\" onclick=\"selected()\" value=\"". $original ."\">
@@ -247,24 +245,24 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 			<div class='col-sm-8'>
 				<div class='editor-view-name'>
 					<b>First Name: </b>
-					<input type='text' name='firstName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $firstName ."' disabled='' class = '".$number."'></input>
+					<input type='text' id='". $original ."-firstName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $firstName ."' disabled='' class='". $original ."'></input>
 				</div>
 				<div class='editor-view-name'>
 					<b>Last Name: </b>
-					<input type='text' name='lastName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $lastName ."' disabled='' class = '".$number."'></input>
+					<input type='text' id='". $original ."-lastName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $lastName ."' disabled='' class='". $original ."'></input>
 				</div>
 				<br>
 				<b>Description: </b><br>
-					<textarea name='description' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class = '".$number."'>". $description ."</textarea><br>
+					<textarea id='". $original ."-description' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class='". $original ."'>". $description ."</textarea><br>
 				<b>Tags: </b><br>
-					<textarea name='tags' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class = '".$number."'>". $tags ."</textarea>
+					<textarea id='". $original ."-tags' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class='". $original ."'>". $tags ."</textarea>
 
-				<div class=\"btn-group btn-group-justified\"  role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\" value='".$number."'>
+				<div class=\"btn-group btn-group-justified\"  role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\" value='".$original."'>
 					<div class=\"btn-group\" role=\"group\">
 						<button class=\"btn btn-success\" style=\"padding: 0\"><a class=\"download-button\" href=\"uploads/". $original ."\" download=\"". $firstName ." ". $lastName ."\"><i class=\"glyphicon glyphicon-download-alt\"></i></a></button>
 					</div>
 					<div class=\"btn-group\" role=\"group\">
-						<button class=\"btn btn-default\" onclick=\"editInfo('".$number."');\"><i class=\"glyphicon glyphicon-pencil\"></i></button>
+						<button class=\"btn btn-default\" onclick=\"editInfo('". $original ."');\"><i class=\"glyphicon glyphicon-pencil\"></i></button>
 					</div>
 					<div class=\"btn-group\" role=\"group\">
 						<button class=\"btn btn-default\" onclick=\"showLightbox('". $original ."', '". $firstName ."', '". $lastName ."', '". $description ."')\"><i class=\"glyphicon glyphicon-picture\"></i></button>
@@ -274,7 +272,7 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 					</div>
 				</div>
 				
-				<button class =\"btn btn-success btn-block\" style=\"display: none\" onclick = \"save('".$number."');\">Save</button>
+				<button class =\"btn btn-success btn-block\" style=\"display: none; margin: 10px 0;\" onclick=\"save('". $original ."');\" >Save</button>
 			</div>
 		</div>";
 } // editorGallery
@@ -308,21 +306,5 @@ function approvalMode($original, $thumbName, $firstName, $lastName, $description
 			</div>
 		</div>";
 } // editorGallery
-
-// download all button
-function downloadAll(){
-	$files = array('/uploads/591822a334b4c.jpg');
-	$zip = new ZipArchive;
-	$filename = "gallery_download_" . time() .".zip";
-	$zip->open($tempfile = tempnam(sys_get_temp_dir(), 'yourzip_'), ZIPARCHIVE::CREATE);
-	foreach ($files as $file) $zip->addFile($file);
-	$zip->close();
-
-	header("Content-Type: application/zip");
-	header("Content-Disposition: attachment; filename=\"".$filename."\"");
-	header("Content-Length: ".filesize($tempfile));
-	readfile($tempfile);
-	//unlink($tempfile);
-} // downloadAll
 
 ?>
