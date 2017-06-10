@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, button, input, textarea {
 } :-moz-placeholder {
     font-family: 'Raleway', sans-serif;
 } ::-moz-placeholder {
-    ffont-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
 } :-ms-input-placeholder {
     font-family: 'Raleway', sans-serif;
 }

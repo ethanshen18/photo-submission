@@ -7,14 +7,14 @@
         "tags": "hello, yes",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Ethan",
-        "lastName": "Shen",
+        "lastName": "Shen2",
         "fileToUpload": "59182282e08e4.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "java, poker",
+        "description": "Lorem ipsum  horse sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "tags": "java, poker, pig",
         "copyright": "on",
         "access": "private",
         "approved": true
@@ -27,7 +27,7 @@
         "tags": "wall, health care",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Christopher",
@@ -37,7 +37,7 @@
         "tags": "inception, batman",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Harris",
@@ -47,7 +47,7 @@
         "tags": "turtle, green tea",
         "copyright": "on",
         "access": "private",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Terry",
@@ -57,7 +57,7 @@
         "tags": "leg, cancer",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Ed",
@@ -67,7 +67,7 @@
         "tags": "tennis, fun",
         "copyright": "on",
         "access": "private",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Roger",
@@ -177,7 +177,7 @@
         "tags": "best, president, ever",
         "copyright": "on",
         "access": "public",
-        "approved": false
+        "approved": true
     },
     {
         "firstName": "Ashley",

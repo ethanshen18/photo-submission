@@ -10,7 +10,7 @@ $search = "";
 $display = "";
 
 // editor view
-$view = "approval";
+$view = "gallery";
 
 // functions file
 include "functions.php";
@@ -26,12 +26,11 @@ if (!empty($_GET["sort"]) && cleanData($_GET["sort"]) == "lastName") $sort = "la
 if ($isEditor) {
 	if (!empty($_GET["display"]) && cleanData($_GET["display"]) == "public") $display = "public";
 	if (!empty($_GET["display"]) && cleanData($_GET["display"]) == "private") $display = "private";
-
-	
 } else $display = "public";
 
 // update editor view
 if ($isEditor) {
+	if (!empty($_GET["view"]) && cleanData($_GET["view"]) == "approval") $view = "gallery";
 	if (!empty($_GET["view"]) && cleanData($_GET["view"]) == "edit") $view = "edit";
 	if (!empty($_GET["view"]) && cleanData($_GET["view"]) == "approval") $view = "approval";
 } // if 
