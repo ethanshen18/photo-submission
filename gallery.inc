@@ -36,7 +36,7 @@
 						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-sort"></i> <span class="caret"></span></span>
 						</button>
 						<ul class="dropdown-menu">
-							<li><a href="#" onclick="addToURL('sort', 'default');return false;"><i class="glyphicon glyphicon-sort-by-attributes"></i> Default</a></li>
+							<li><a href="#" onclick="addToURL('sort', 'default');return false;"><i class="glyphicon glyphicon-sort-by-attributes"></i> Upload Date</a></li>
 							<li><a href="#" onclick="addToURL('sort', 'firstName');return false;"><i class="glyphicon glyphicon-sort-by-alphabet"></i> First Name</a></li>
 							<li><a href="#" onclick="addToURL('sort', 'lastName');return false;"><i class="glyphicon glyphicon-sort-by-alphabet"></i> Last Name</a></li>
 						</ul>

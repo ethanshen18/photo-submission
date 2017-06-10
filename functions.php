@@ -128,6 +128,9 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 	// duplicate array
 	$phparraySorted = array_values($phparray);
 
+	// count unapproved images
+	$unapproved = 0;
+
 	// filter search results and restrictions
 	for ($i = 0; $i < sizeof($phparray); $i++) {
 
@@ -136,16 +139,21 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 		$tags = trim ($phparraySorted [$i] ["tags"], " ");
 		$approved = $phparraySorted [$i] ["approved"];
 
+		// count unapproved images
+		if (!$approved) $unapproved++;
+
 		// check if photo is approved
 		if (!$isEditor && !$approved) {
 			unset($phparraySorted [$i]);
 			continue;
-		} else if ($isEditor && $view == "edit" && !$approved) {
-			unset($phparraySorted [$i]);
-			continue;
-		} else if ($isEditor && $view == "approval" && $approved) {
-			unset($phparraySorted [$i]);
-			continue;
+		} else if ($isEditor) {
+			if ($view == "approval" && $approved) {
+				unset($phparraySorted [$i]);
+				continue;
+			} else if ($view == "gallery" && !$approved || $view == "edit" && !$approved) {
+				unset($phparraySorted [$i]);
+				continue;
+			} //if else
 		} // if else
 		
 		// seperate tags by comma
@@ -167,9 +175,9 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 
 	// reindex array
 	$phparraySorted = array_values($phparraySorted);
-	
+
 	// display editor buttons and messages
-	if ($isEditor) editorNavbar($view);
+	if ($isEditor) editorNavbar($view, $unapproved);
 
 	// transfer current gallery content as json array to javascript
 	echo "<pre id='current-array' style='display: none'>";
@@ -205,11 +213,11 @@ function publicGallery($original, $thumbName, $firstName, $lastName, $descriptio
 } // publicGallery
 
 // show editor buttons and messages
-function editorNavbar($view) {
+function editorNavbar($view, $unapproved) {
 	
 	// Editor View
 	if ($view == "gallery") echo "<h3><i class=\"glyphicon glyphicon-picture\"></i> Editor Gallery</h3><br><br>";
-	if ($view == "edit") echo "<h3><i class=\"glyphicon glyphicon-pencil\"></i> Edit Mode</h3><br><br>";
+	if ($view == "edit") echo "<h3><i class=\"glyphicon glyphicon-pencil\"></i> Gallery Manager</h3><br><br>";
 	if ($view == "approval") echo "<h3><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval</h3><br><br>";
 
 	// button section
@@ -218,33 +226,21 @@ function editorNavbar($view) {
 	// editor gallery
 	if ($view == "gallery") {
 
-		// waiting for approval button
-		echo "<a href=\"#\" onclick=\"addToURL('view', 'approval'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"waiting-for-approval-button\"><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval</a>";
-
 		// edit button
-		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Edit Mode</a>";
-
-	// edit view
-	} else if ($view == "edit") {
-
-		// editor gellary
-		echo "<a href=\"#\" onclick=\"addToURL('view', 'gallery'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"waiting-for-approval-button\"><i class=\"glyphicon glyphicon-picture\"></i> Editor Gallery</a>";
+		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success editor-nav-button\" role=\"button\"><i class=\"glyphicon glyphicon-pencil\"></i> Gallery Manager</a>";
 
 		// waiting for approval button
-		echo "<a href=\"#\" onclick=\"addToURL('view', 'approval'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"waiting-for-approval-button\"><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval</a>";
+		echo "<a href=\"#\" onclick=\"addToURL('view', 'approval'); return false;\" class=\"btn btn-success editor-nav-button\" role=\"button\"><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval (". $unapproved .")</a>";
 
-	// approval view
-	} else if ($view == "approval") {
+		// download all button
+		echo "<a href=\"download.php\" class=\"btn btn-success editor-nav-button\" role=\"button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
+
+	// edit view & approval view
+	} else if ($view == "edit" || $view == "approval") {
 
 		// editor gellary
-		echo "<a href=\"#\" onclick=\"addToURL('view', 'gallery'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"waiting-for-approval-button\"><i class=\"glyphicon glyphicon-picture\"></i> Editor Gallery</a>";
-
-		// edit button
-		echo "<a href=\"#\" onclick=\"addToURL('view', 'edit'); return false;\" class=\"btn btn-success\" role=\"button\" id=\"edit-view-button\"><i class=\"glyphicon glyphicon-pencil\"></i> Edit Mode</a>";
+		echo "<a href=\"#\" onclick=\"addToURL('view', 'gallery'); return false;\" class=\"btn btn-success editor-nav-button\" role=\"button\"><i class=\"glyphicon glyphicon-menu-left\"></i> Back To Gallery</a>";
 	} // if else
-
-	// download all button
-	echo "<a href=\"download.php\" class=\"btn btn-success\" role=\"button\" id=\"download-all-button\"><i class=\"glyphicon glyphicon-download-alt\"></i> Download All</a>";
 
 	// end button section
 	echo "</div>";
