@@ -18,7 +18,7 @@
 	<body ontouchstart>
 		<div class="container-fluid" id="navigation">
 			<div class="navbar-header">
-				<button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<button class="navbar-toggle main-toggle" data-toggle="collapse" data-target="#myNavbar">
 					<i class="glyphicon glyphicon-menu-hamburger"></i>
 				</button>
 				<a href="index.php" id="site-name"><i class="glyphicon glyphicon-picture"></i> GRAD BABY PHOTO</a>
@@ -58,17 +58,18 @@
 		
 		<div class="container-fluid" id="selection-navbar">
 			<div class="navbar-header">
-				<button class="navbar-toggle" data-toggle="collapse">
+				<button class="navbar-toggle selection-toggle" data-toggle="collapse" data-target="#selection-options">
+					<i class="glyphicon glyphicon-menu-hamburger"></i>
 				</button>
 				<span id="selection-header"><i class="glyphicon glyphicon-check"></i> <span class="selection-count"></span> SELECTED</span>
 			</div>
-			<div class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" id="selection-options">
 				<div class="navbar-right">
 					<button type="button" class="btn btn-success selection-button" onclick="approveSelection()" <?php if ($view != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-ok"></i> Approve (<span class="selection-count"></span>)</button>
 					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($view != "approval") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-remove"></i> Reject (<span class="selection-count"></span>)</button>
 					<button type="button" class="btn btn-danger selection-button" onclick="deleteSelection()" <?php if ($view != "edit") echo "style='display: none'"; ?>><i class="glyphicon glyphicon-trash"></i> Delete Selected (<span class="selection-count"></span>)</button>
 					<button type="button" class="btn btn-default selection-button-black" onclick="selectAll();">Select All</button>
-					<button type="button" class="btn btn-default selection-button-black" onclick="deselectAll();">Deselect All</button>
+					<button type="button" class="btn btn-default selection-button-black" id="deselect-all" onclick="deselectAll();">Deselect All</button>
 				</div>
 			</div>
 		</div>

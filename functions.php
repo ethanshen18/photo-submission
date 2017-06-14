@@ -270,7 +270,7 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 				<b>Tags: </b><br>
 					<textarea id='". $original ."-tags' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class='". $original ."'>". $tags ."</textarea>
 
-				<div class=\"btn-group btn-group-justified\"  role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\" value='".$original."'>
+				<div class=\"btn-group btn-group-justified edit-buttons\"  role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\" value='".$original."'>
 					<div class=\"btn-group\" role=\"group\">
 						<button class=\"btn btn-success\" style=\"padding: 0\"><a class=\"download-button\" href=\"uploads/". $original ."\" download=\"". $firstName ." ". $lastName ."\"><i class=\"glyphicon glyphicon-download-alt\"></i></a></button>
 					</div>
@@ -285,7 +285,14 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 					</div>
 				</div>
 				
-				<button class =\"btn btn-success btn-block\" style=\"display: none; margin: 10px 0;\" onclick=\"save('". $original ."');\" >Save</button>
+				<div class=\"btn-group btn-group-justified save-cancel\" role=\"group\" aria-label=\"...\" style=\"margin: 10px 0; display: none;\" value='".$original."'>
+					<div class=\"btn-group\" role=\"group\">
+						<button class =\"btn btn-success\" onclick=\"save('". $original ."');\" >Save</button>
+					</div>
+					<div class=\"btn-group\" role=\"group\">
+						<button class =\"btn btn-danger\" onclick=\"document.location.reload(true);\" >Cancel</button>
+					</div>
+				</div>
 			</div>
 		</div>";
 } // editMode

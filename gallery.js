@@ -38,7 +38,8 @@ window.onscroll = function() {backToTopVisibility()};
 $(document).click(function() {
 
 	// change to close button
-	if ($("#search-button").is(":visible")) $(".navbar-toggle").html("<i class='glyphicon glyphicon-remove'></i>");
+	if ($("#search-button").is(":visible")) $(".main-toggle").html("<i class='glyphicon glyphicon-remove'></i>");
+	if ($("#deselect-all").is(":visible")) $(".selection-toggle").html("<i class='glyphicon glyphicon-remove'></i>");
 
 	// change to default button
 	setTimeout(changeToggleText, 350);
@@ -81,7 +82,8 @@ function addToURL(key, value) {
 function changeToggleText() {
 
 	// change to default button
-	if (!$("#search-button").is(":visible")) $(".navbar-toggle").html("<i class='glyphicon glyphicon-menu-hamburger'></i>");
+	if (!$("#search-button").is(":visible")) $(".main-toggle").html("<i class='glyphicon glyphicon-menu-hamburger'></i>");
+	if (!$("#deselect-all").is(":visible")) $(".selection-toggle").html("<i class='glyphicon glyphicon-menu-hamburger'></i>");
 } // changeToggleText
 
 // display lightbox
@@ -315,8 +317,8 @@ function deleteSelection(){
 // allows user to edit info of the edit box
 function editInfo(original) {
 	var edit = document.getElementsByClassName(original);
-	var buttonGroup = document.getElementsByClassName("btn-group btn-group-justified");
-	var saveButton = document.getElementsByClassName("btn btn-success btn-block");
+	var buttonGroup = document.getElementsByClassName("edit-buttons");
+	var saveButton = document.getElementsByClassName("save-cancel");
 	var editorGrid = document.getElementsByClassName("editor-grid");
 	var checkBox = document.getElementsByClassName("check");
 	

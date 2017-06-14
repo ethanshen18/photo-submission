@@ -85,6 +85,7 @@ text {
 	color: white;
 	background-color: black;
 	margin-right: 10px;
+	margin-bottom: 10px;
 } .editor-nav-button:hover, .editor-nav-button:focus {
 	background-color: white !important;
 	border: 1px solid black !important;
@@ -386,12 +387,25 @@ input[type="checkbox"][id^="image-checkbox"] {
 }
 
 .navbar-toggle {
-	color: white;
 	background-color: transparent;
 	letter-spacing: 2px;
 	font-size: 20px;
 	border-radius: 0px;
 	transition: 0.2s;
+} .main-toggle {
+	color: white;
+} .selection-toggle {
+	color: black;
+}
+
+@media (max-width: 767px){
+	.selection-button, .selection-button-black {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+	} #selection-options {
+		margin-right: 15px; 
+	}
 }
 
 .public-photo-container {
