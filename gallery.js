@@ -350,7 +350,6 @@ function save(original) {
 	var newFirstName = document.getElementById(original + "-firstName").value;
 	var newLastName = document.getElementById(original + "-lastName").value;
 	var newDescription = document.getElementById(original + "-description").value;
-	var newTags = document.getElementById(original + "-tags").value;
 
 	// use ajax to modify json
 	$.ajax({
@@ -359,8 +358,7 @@ function save(original) {
 			target: original,
 			firstName: newFirstName,
 			lastName: newLastName,
-			description: newDescription,
-			tags: newTags
+			description: newDescription
 		},
 		type: "GET",
 		success: function(data) {

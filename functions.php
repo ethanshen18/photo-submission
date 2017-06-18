@@ -10,12 +10,12 @@ function cleanData($data) {
 } // cleanData
 
 // new image submission
-function newSubmission($firstName, $lastName, $fileToUpload, $description, $tag, $copyright, $access) {
+function newSubmission($firstName, $lastName, $fileToUpload, $description, $copyright, $access) {
 	$jsonArray = file("galleryinfo.json");
 	$jsonString = "";
 	foreach ($jsonArray as $line) $jsonString .= $line;
 	$phparray = json_decode($jsonString, true);
-	$phparray[] = array("firstName" => $firstName, "lastName" => $lastName, "fileToUpload"=> $fileToUpload, "description" => $description, "tags" => $tag, "copyright" => $copyright, "access" => $access, "approved" => false);
+	$phparray[] = array("firstName" => $firstName, "lastName" => $lastName, "fileToUpload"=> $fileToUpload, "description" => $description, "copyright" => $copyright, "access" => $access, "approved" => false);
 	file_put_contents("galleryinfo.json", json_encode($phparray, JSON_PRETTY_PRINT));
 } // newSubmission
 
@@ -107,11 +107,6 @@ function createThumb($dir, $name) {
 // show all thumbnails from folder
 function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 
-	// display result sorting type
-	if (!empty($sort)) echo "Sort by: " . $sort . "<br>";
-	if (!empty($display) && $isEditor) echo "Access: " . $display . "<br>";
-	if (!empty($search)) echo "Results for: " . $search . "<br>";
-
 	// load json into array
 	$jsonArray = file("galleryinfo.json");
 	$jsonString = "";
@@ -135,8 +130,9 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 	for ($i = 0; $i < sizeof($phparray); $i++) {
 
 		// get info from json file
+		$firstNameCheck = strtolower($phparraySorted [$i] ["firstName"]);
+		$lastNameCheck = strtolower($phparraySorted [$i] ["lastName"]);
 		$access = $phparraySorted [$i] ["access"];
-		$tags = trim ($phparraySorted [$i] ["tags"], " ");
 		$approved = $phparraySorted [$i] ["approved"];
 
 		// count unapproved images
@@ -156,19 +152,12 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 			} //if else
 		} // if else
 		
-		// seperate tags by comma
-		$tagCheck = explode(",", $tags);
-		
-		// trim spaces in the beginning and end of tags
-		for ($j = 0; $j < sizeof($tagCheck); $j++){
-			$tagCheck[$j] = trim($tagCheck[$j], " ");
-		} // for
-		
 		// check photo access and search results
 		if (!empty($display) && $access != $display) {
 			unset($phparraySorted [$i]);
-		} else if (!empty($search) && !in_array($search, $tagCheck)) {
-			unset($phparraySorted [$i]);
+		} else if (!empty($search)) {
+			if (strpos($firstNameCheck, $search) === false && strpos($lastNameCheck, $search) === false)
+				unset($phparraySorted [$i]);
 		} // if
 		
 	} // for
@@ -178,6 +167,15 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 
 	// display editor buttons and messages
 	if ($isEditor) editorNavbar($view, $unapproved);
+
+	// display result sorting type
+	if ($sort == "firstName") echo "Sort by: First Name <br>";
+	else if ($sort == "lastName") echo "Sort by: Last Name <br>";
+	else echo "Sort by: Upload Date <br>";
+	if ($display == "public" && $isEditor) echo "Display: Public <br>";
+	else if ($display == "private" && $isEditor) echo "Display: Private <br>";
+	else if ($isEditor) echo "Display: All Images <br>";
+	if (!empty($search)) echo "Search: " . $search . "<br>";
 
 	// transfer current gallery content as json array to javascript
 	echo "<pre id='current-array' style='display: none'>";
@@ -192,12 +190,11 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 		$lastName = $phparraySorted [$i] ["lastName"];
 		$description = $phparraySorted [$i] ["description"];
 		$original = $phparraySorted [$i] ["fileToUpload"];
-		$tags = $phparraySorted [$i] ["tags"];
 
 		// generate bootstrap grid
 		if ($isEditor && $view == "gallery") publicGallery($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description);
-		else if ($isEditor && $view == "edit") editMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags);
-		else if ($isEditor && $view == "approval") approvalMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags);
+		else if ($isEditor && $view == "edit") editMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description);
+		else if ($isEditor && $view == "approval") approvalMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description);
 		else publicGallery($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description);
 	} // for
 
@@ -254,7 +251,7 @@ function editorNavbar($view, $unapproved) {
 } // editorNavbar
 
 // editor gallery
-function editMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
+function editMode($original, $thumbName, $firstName, $lastName, $description) {
 	echo "<div class='editor-grid' value='". $original ."'>
 			<div class='col-sm-4' style=\"padding: 10px\">
 				<div class=\"edit-photo-container\" name=\"checkBox\">
@@ -262,7 +259,7 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"edit-photo\"></label>
 				</div>
 			</div>
-			<div class='col-sm-8'>
+			<div class='col-sm-8' style=\"padding: 10px\">
 				<div class='editor-view-name'>
 					<b>First Name: </b>
 					<input type='text' id='". $original ."-firstName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $firstName ."' disabled='' class='". $original ."'></input>
@@ -274,8 +271,6 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 				<br>
 				<b>Description: </b><br>
 					<textarea id='". $original ."-description' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class='". $original ."'>". $description ."</textarea><br>
-				<b>Tags: </b><br>
-					<textarea id='". $original ."-tags' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class='". $original ."'>". $tags ."</textarea>
 
 				<div class=\"btn-group btn-group-justified edit-buttons\"  role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\" value='".$original."'>
 					<div class=\"btn-group\" role=\"group\">
@@ -305,7 +300,7 @@ function editMode($original, $thumbName, $firstName, $lastName, $description, $t
 } // editMode
 
 // waiting for approval gallery
-function approvalMode($original, $thumbName, $firstName, $lastName, $description, $tags) {
+function approvalMode($original, $thumbName, $firstName, $lastName, $description) {
 	echo "<div class=\"col-sm-3\">
 			<div class=\"approve-container\" name=\"checkBox\">
 				<div class=\"approve-photo-container\">
@@ -316,7 +311,6 @@ function approvalMode($original, $thumbName, $firstName, $lastName, $description
 				<div class=\"approval-info\" style=\"border: 1px solid transparent\">
 					<div class=\"text\"><b>Name: </b>". $firstName ." ". $lastName ."</div>
 					<div class=\"text\"><b>Description: </b>". $description ."</div>
-					<div class=\"text\"><b>Tags: </b>". $tags ."</div>
 				</div>
 
 				<div class=\"btn-group btn-group-justified\" role=\"group\" aria-label=\"...\">

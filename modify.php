@@ -15,7 +15,6 @@ for ($i = 0; $i < $arraysize; $i++) {
 		$phparray [$i] ["firstName"] = $_GET["firstName"];
 		$phparray [$i] ["lastName"] = $_GET["lastName"];
 		$phparray [$i] ["description"] = $_GET["description"];
-		$phparray [$i] ["tags"] = $_GET["tags"];
 	} // if
 } // for phparray
 

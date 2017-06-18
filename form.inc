@@ -38,9 +38,7 @@
 			<fieldset>
 				<legend>Description</legend>
 		      
-				<textarea name="description" id="description" maxlength="120" placeholder="description (120 characters max) <?php echo $descriptionError;?>"><?php echo $description;?></textarea>
-
-				<textarea name="tag" id="tag" maxlength="120" placeholder="tags (seperated by commas) <?php echo $tagError;?>"><?php echo $tag;?></textarea>
+				<textarea name="description" id="description" maxlength="120" placeholder="120 characters max <?php echo $descriptionError;?>"><?php echo $description;?></textarea>
 			</fieldset>
 
 			<fieldset>

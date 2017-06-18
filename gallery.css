@@ -105,22 +105,22 @@ text {
 
 .editor-grid {
 	width: 100%;
-	height: 250px;
+	height: 200px;
 	border: 1px solid #E6E6E6;
 	transition: all 0.2s;
 	margin-bottom: 20px;
 } .editor-grid:hover {
 	background-color: #E6E6E6;
 	box-shadow: 0px 0px 10px #888888;
-} 
-
-.editor-photo-container {
-	height: 230px;
-	position: relative;
-	margin: 10px;
 }
 
-.editor-photo {
+.edit-photo-container {
+	width: 100%;
+	height: 180px;
+	position: relative;
+}
+
+.edit-photo {
 	max-width: 100%;
 	max-height: 100%;
 	position: absolute;
@@ -129,13 +129,18 @@ text {
 	left: 0;
 	right: 0;
 	margin: auto;
+	transition: all 0.2s;
+}
+
+.editor-view-name {
+	display: inline-block;
 }
 
 @media (max-width: 767px){
 	.editor-grid {
 		height: auto;
-	} .editor-photo-container {
-		height: 150px;
+	} .edit-photo-container {
+		height: 120px;
 	}
 }
 
@@ -157,12 +162,7 @@ input[type="text"], textarea {
 	width: 100px;
 } textarea {
 	width: 100%;
-}
-
-.editor-view-name {
-	display: inline-block;
-	margin-right: 10px;
-	margin-top: 10px;
+	height: 70px;
 }
 
 #back-to-top {
@@ -217,24 +217,6 @@ input[type="text"], textarea {
 	width: 100%;
 	height: 150px;
 	position: relative;
-}
-
-.edit-photo-container {
-	width: 100%;
-	height: 230px;
-	position: relative;
-}
-
-.edit-photo {
-	max-width: 100%;
-	max-height: 100%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	transition: all 0.2s;
 }
 
 /*********************************editor checkbox***********************************/

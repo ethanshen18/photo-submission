@@ -4,7 +4,6 @@
         "lastName": "Smith",
         "fileToUpload": "59182259eb3b4.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "hello, yes",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -14,7 +13,6 @@
         "lastName": "Shen",
         "fileToUpload": "59182282e08e4.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "java, poker",
         "copyright": "on",
         "access": "private",
         "approved": true
@@ -24,7 +22,6 @@
         "lastName": "Trump",
         "fileToUpload": "591822a334b4c.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "wall, health care",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -34,7 +31,6 @@
         "lastName": "Nolan",
         "fileToUpload": "591822c410087.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "inception, batman",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -44,7 +40,6 @@
         "lastName": "Zheng",
         "fileToUpload": "591822e2148f7.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "turtle, green tea",
         "copyright": "on",
         "access": "private",
         "approved": false
@@ -54,7 +49,6 @@
         "lastName": "Fox",
         "fileToUpload": "5918231537612.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "leg, cancer",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -64,7 +58,6 @@
         "lastName": "Baker",
         "fileToUpload": "5918234470c9d.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "tennis, fun",
         "copyright": "on",
         "access": "private",
         "approved": false
@@ -74,7 +67,6 @@
         "lastName": "Federer",
         "fileToUpload": "591823666386e.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "backhand, handsome",
         "copyright": "on",
         "access": "private",
         "approved": true
@@ -84,7 +76,6 @@
         "lastName": "Nadal",
         "fileToUpload": "59182384f3c58.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "spanish, young",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -94,7 +85,6 @@
         "lastName": "Snow",
         "fileToUpload": "591823e6ede59.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "game of thrones, blood",
         "copyright": "on",
         "access": "private",
         "approved": false
@@ -104,7 +94,6 @@
         "lastName": "Chen",
         "fileToUpload": "5918240dde2ec.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "action, movie, star",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -114,7 +103,6 @@
         "lastName": "Jean",
         "fileToUpload": "5918242e285bc.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "spider, boy",
         "copyright": "on",
         "access": "private",
         "approved": false
@@ -124,7 +112,6 @@
         "lastName": "Chen",
         "fileToUpload": "5918245f0c928.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "yearbook, life",
         "copyright": "on",
         "access": "public",
         "approved": true
@@ -134,7 +121,6 @@
         "lastName": "Wan",
         "fileToUpload": "5918247ebee57.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "friend, cute",
         "copyright": "on",
         "access": "private",
         "approved": false
@@ -144,7 +130,6 @@
         "lastName": "Khau",
         "fileToUpload": "591824aa3c231.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "girl, nice hair",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -154,7 +139,6 @@
         "lastName": "Hartley",
         "fileToUpload": "591824ec5a578.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "teacher, hard, funny",
         "copyright": "on",
         "access": "private",
         "approved": true
@@ -164,7 +148,6 @@
         "lastName": "Swift",
         "fileToUpload": "5918252886f87.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "sing, song",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -174,7 +157,6 @@
         "lastName": "Obama",
         "fileToUpload": "591825517f291.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "best, president, ever",
         "copyright": "on",
         "access": "public",
         "approved": false
@@ -184,7 +166,6 @@
         "lastName": "Gale",
         "fileToUpload": "5918257cee472.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "museum, host",
         "copyright": "on",
         "access": "private",
         "approved": false
@@ -194,7 +175,6 @@
         "lastName": "Jobs",
         "fileToUpload": "5918259b9a05d.jpg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "tags": "apple, genius",
         "copyright": "on",
         "access": "public",
         "approved": false

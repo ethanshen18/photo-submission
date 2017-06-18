@@ -4,7 +4,6 @@
 $firstName = "";
 $lastName = "";
 $description = "";
-$tag = "";
 $copyright = "";
 $access = "";
 
@@ -17,7 +16,6 @@ $firstNameError = "";
 $lastNameError = "";
 $fileError = "";
 $descriptionError = "";
-$tagError = "";
 $copyrightError = "";
 $accessError = "";
 
@@ -57,12 +55,6 @@ if ($submit == "submit") {
 			echo "<style> #description::-webkit-input-placeholder {color: red;} </style>";
 		} else $description = cleanData($_POST["description"]);
 
-		// tag
-		if (empty($_POST["tag"])) {
-			$tagError = "required";
-			echo "<style> #tag::-webkit-input-placeholder {color: red;} </style>";
-		} else $tag = strtolower(cleanData($_POST["tag"]));
-
 		// copyright
 		if (empty($_POST["copyright"])) $copyrightError = "required";
 		else $copyright = cleanData($_POST["copyright"]);
@@ -73,7 +65,7 @@ if ($submit == "submit") {
 	} // if
 
 	// process user info if no error detected
-	if ($firstNameError == null && $lastNameError == null && $fileError == null && $descriptionError == null && $tagError == null && $copyrightError == null && $accessError == null) newSubmission($firstName, $lastName, $newFileName, $description, $tag, $copyright, $access);
+	if ($firstNameError == null && $lastNameError == null && $fileError == null && $descriptionError == null && $copyrightError == null && $accessError == null) newSubmission($firstName, $lastName, $newFileName, $description, $copyright, $access);
 
 	// display form if error detected
 	else include 'form.inc';
