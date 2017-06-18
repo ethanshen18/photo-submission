@@ -208,8 +208,8 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 // generate public gallery
 function publicGallery($original, $thumbName, $firstName, $lastName, $description) {
 	echo "<div class=\"col-sm-3\" style=\"padding: 0\">
-			<div class=\"grid-container\" onclick=\"showLightbox('". $original ."', '". $firstName ."', '". $lastName ."', '". $description ."')\">
-				<div class=\"public-photo-container\"><img src=\"". $thumbName ."\" class=\"photo\"></div>
+			<div class=\"grid-container\" style=\"cursor: pointer;\" onclick=\"showLightbox('". $original ."', '". $firstName ."', '". $lastName ."', '". $description ."')\">
+				<div class=\"photo-container\"><img src=\"". $thumbName ."\" class=\"photo\"></div>
 				<div class=\"text\">". $firstName ." ". $lastName ."</div>
 			</div>
 		</div>";
@@ -222,9 +222,6 @@ function editorNavbar($view, $unapproved) {
 	if ($view == "gallery") echo "<h3><i class=\"glyphicon glyphicon-picture\"></i> Editor Gallery</h3><br><br>";
 	if ($view == "edit") echo "<h3><i class=\"glyphicon glyphicon-pencil\"></i> Gallery Manager</h3><br><br>";
 	if ($view == "approval") echo "<h3><i class=\"glyphicon glyphicon-inbox\"></i> Waiting For Approval</h3><br><br>";
-
-	// button section
-	echo "<div id=\"button-container\">";
 
 	// editor gallery
 	if ($view == "gallery") {
@@ -245,17 +242,17 @@ function editorNavbar($view, $unapproved) {
 		echo "<a href=\"#\" onclick=\"addToURL('view', 'gallery'); return false;\" class=\"btn btn-success editor-nav-button\" role=\"button\"><i class=\"glyphicon glyphicon-menu-left\"></i> Back To Gallery</a>";
 	} // if else
 
-	// end button section
-	echo "</div>";
+	// end editor navbar
+	echo "<br><br>";
 } // editorNavbar
 
 // editor gallery
 function editMode($original, $thumbName, $firstName, $lastName, $description) {
 	echo "<div class='col-sm-4 edit-mode-grid' style=\"padding: 0\" value='". $original ."'>
-			<div class='edit-grid'>
-				<div class=\"edit-photo-container\" name=\"checkBox\">
+			<div class='grid-container'>
+				<div class=\"photo-container\" name=\"checkBox\">
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\" onclick=\"selected()\" value=\"". $original ."\">
-					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"edit-photo\"></label>
+					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"photo\"></label>
 				</div>
 
 				<div style='margin-top: 10px'>
@@ -303,10 +300,10 @@ function editMode($original, $thumbName, $firstName, $lastName, $description) {
 // waiting for approval gallery
 function approvalMode($original, $thumbName, $firstName, $lastName, $description) {
 	echo "<div class=\"col-sm-3\" style=\"padding: 0\">
-			<div class=\"approve-container\" name=\"checkBox\">
-				<div class=\"approve-photo-container\">
+			<div class=\"grid-container\" name=\"checkBox\">
+				<div class=\"photo-container\">
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class = \"check\" onclick=\"selected()\" value=\"". $original ."\">
-					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"approve-photo\"></label>
+					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"photo\"></label>
 				</div>
 
 				<div class=\"approval-info\" style=\"border: 1px solid transparent\">
