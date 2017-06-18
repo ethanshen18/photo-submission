@@ -207,7 +207,7 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 
 // generate public gallery
 function publicGallery($original, $thumbName, $firstName, $lastName, $description) {
-	echo "<div class=\"col-sm-3\">
+	echo "<div class=\"col-sm-3\" style=\"padding: 0\">
 			<div class=\"grid-container\" onclick=\"showLightbox('". $original ."', '". $firstName ."', '". $lastName ."', '". $description ."')\">
 				<div class=\"public-photo-container\"><img src=\"". $thumbName ."\" class=\"photo\"></div>
 				<div class=\"text\">". $firstName ." ". $lastName ."</div>
@@ -251,7 +251,7 @@ function editorNavbar($view, $unapproved) {
 
 // editor gallery
 function editMode($original, $thumbName, $firstName, $lastName, $description) {
-	echo "<div class='col-sm-4 edit-mode-grid' style=\"padding: 10px\" value='". $original ."'>
+	echo "<div class='col-sm-4 edit-mode-grid' style=\"padding: 0\" value='". $original ."'>
 			<div class='edit-grid'>
 				<div class=\"edit-photo-container\" name=\"checkBox\">
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\" onclick=\"selected()\" value=\"". $original ."\">
@@ -302,7 +302,7 @@ function editMode($original, $thumbName, $firstName, $lastName, $description) {
 
 // waiting for approval gallery
 function approvalMode($original, $thumbName, $firstName, $lastName, $description) {
-	echo "<div class=\"col-sm-3\">
+	echo "<div class=\"col-sm-3\" style=\"padding: 0\">
 			<div class=\"approve-container\" name=\"checkBox\">
 				<div class=\"approve-photo-container\">
 					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class = \"check\" onclick=\"selected()\" value=\"". $original ."\">

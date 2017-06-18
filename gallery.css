@@ -105,6 +105,7 @@ text {
 
 .edit-grid {
 	padding: 10px;
+	margin: 10px;
 	border: 1px solid #E6E6E6;
 	transition: all 0.2s;
 } .edit-grid:hover {
@@ -392,10 +393,6 @@ input[type="checkbox"][id^="image-checkbox"] {
 	background-color: #E6E6E6;
 	box-shadow: 0px 0px 10px #888888;
 	cursor: pointer;
-}
-
-.col-sm-3 {
-	padding: 0;
 }
 
 .photo {
