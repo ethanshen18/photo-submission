@@ -103,27 +103,19 @@ text {
 	color: white
 }
 
-.editor-grid-container {
+.edit-grid {
 	padding: 10px;
-}
-
-.editor-grid {
-	width: 100%;
-	height: 200px;
 	border: 1px solid #E6E6E6;
 	transition: all 0.2s;
-} .editor-grid:hover {
+} .edit-grid:hover {
 	background-color: #E6E6E6;
 	box-shadow: 0px 0px 10px #888888;
 }
 
 .edit-photo-container {
 	width: 100%;
-	height: 180px;
-	position: relative;
-}
-
-.edit-photo {
+	height: 150px;
+} .edit-photo {
 	max-width: 100%;
 	max-height: 100%;
 	position: absolute;
@@ -135,14 +127,8 @@ text {
 	transition: all 0.2s;
 }
 
-.editor-view-name {
-	display: inline-block;
-}
-
 @media (max-width: 767px){
-	.editor-grid {
-		height: auto;
-	} .edit-photo-container {
+	.edit-photo-container {
 		height: 120px;
 	}
 }
@@ -204,7 +190,11 @@ input[type="text"], textarea {
 	box-shadow: 0px 0px 10px #888888;
 }
 
-.approve-photo {
+.approve-photo-container {
+	width: 100%;
+	height: 150px;
+	position: relative;
+} .approve-photo {
 	max-width: 100%;
 	max-height: 100%;
 	position: absolute;
@@ -214,12 +204,6 @@ input[type="text"], textarea {
 	right: 0;
 	margin: auto;
 	transition: all 0.2s;
-}
-
-.approve-photo-container {
-	width: 100%;
-	height: 150px;
-	position: relative;
 }
 
 /*********************************editor checkbox***********************************/
@@ -480,14 +464,14 @@ input[type="checkbox"][id^="image-checkbox"] {
 	line-height: 20px;
 }
 
-#close-lightbox, #left-lightbox, #right-lightbox, #download-button-lightbox {
+#close-lightbox, #left-lightbox, #right-lightbox {
 	color: rgba(255, 255, 255, 0.5);
 	font-size: 30px;
 	background: rgba(0, 0, 0, 0.5);
 	transition: background 0.2s;
 	transition: color 0.2s;
 	position: absolute;
-} #close-lightbox:hover, #left-lightbox:hover, #right-lightbox:hover,  #download-button-lightbox:hover{
+} #close-lightbox:hover, #left-lightbox:hover, #right-lightbox:hover {
 	background: rgba(0, 0, 0, 0.8);
 	color: white;
 	cursor: pointer;
@@ -495,12 +479,10 @@ input[type="checkbox"][id^="image-checkbox"] {
 	top: 0;
 	right: 0;
 	padding: 10px;
-} #left-lightbox, #right-lightbox {
-	padding: 50px 10px;
-} 
-
-#download-button-lightbox{
-	padding: 10px;
-	font-size: 30px;
-	transition: all 0.2s;
+} #left-lightbox {
+	padding: 15px 10px;
+	left: 0;
+} #right-lightbox {
+	padding: 15px 10px;
+	right: 0;
 }

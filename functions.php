@@ -251,49 +251,49 @@ function editorNavbar($view, $unapproved) {
 
 // editor gallery
 function editMode($original, $thumbName, $firstName, $lastName, $description) {
-	echo "<div class='editor-grid-container' value='". $original ."'>
-			<div class='editor-grid'>
-				<div class='col-sm-4' style=\"padding: 10px\">
-					<div class=\"edit-photo-container\" name=\"checkBox\">
-						<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\" onclick=\"selected()\" value=\"". $original ."\">
-						<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"edit-photo\"></label>
-					</div>
+	echo "<div class='col-sm-4 edit-mode-grid' style=\"padding: 10px\" value='". $original ."'>
+			<div class='edit-grid'>
+				<div class=\"edit-photo-container\" name=\"checkBox\">
+					<input type=\"checkbox\" id=\"image-checkbox-". $original ."\" class=\"check\" onclick=\"selected()\" value=\"". $original ."\">
+					<label for=\"image-checkbox-". $original ."\"><img src=\"". $thumbName ."\" class=\"edit-photo\"></label>
 				</div>
-				<div class='col-sm-8' style=\"padding: 10px\">
-					<div class='editor-view-name'>
+
+				<div style='margin-top: 10px'>
+					<div style='display: inline-block;'>
 						<b>First Name: </b>
 						<input type='text' id='". $original ."-firstName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $firstName ."' disabled='' class='". $original ."'></input>
 					</div>
-					<div class='editor-view-name'>
+					<div style='display: inline-block;'>
 						<b>Last Name: </b>
 						<input type='text' id='". $original ."-lastName' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' value='". $lastName ."' disabled='' class='". $original ."'></input>
 					</div>
-					<br>
-					<b>Description: </b><br>
+					<div>
+						<b>Description: </b><br>
 						<textarea id='". $original ."-description' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' disabled='' class='". $original ."'>". $description ."</textarea><br>
-
-					<div class=\"btn-group btn-group-justified edit-buttons\"  role=\"group\" aria-label=\"...\" style=\"margin: 10px 0\" value='".$original."'>
-						<div class=\"btn-group\" role=\"group\">
-							<button class=\"btn btn-success\" style=\"padding: 0\"><a class=\"download-button\" href=\"uploads/". $original ."\" download=\"". $firstName ." ". $lastName ."\"><i class=\"glyphicon glyphicon-download-alt\"></i></a></button>
-						</div>
-						<div class=\"btn-group\" role=\"group\">
-							<button class=\"btn btn-default\" onclick=\"editInfo('". $original ."');\"><i class=\"glyphicon glyphicon-pencil\"></i></button>
-						</div>
-						<div class=\"btn-group\" role=\"group\">
-							<button class=\"btn btn-default\" onclick=\"showLightbox('". $original ."', '". $firstName ."', '". $lastName ."', '". $description ."')\"><i class=\"glyphicon glyphicon-picture\"></i></button>
-						</div>
-						<div class=\"btn-group\" role=\"group\">
-							<button class=\"btn btn-danger\" onclick=\"deleteImage('". $original ."')\"><i class=\"glyphicon glyphicon-trash\"></i></button>
-						</div>
 					</div>
+				</div>
+
+				<div class=\"btn-group btn-group-justified edit-buttons\"  role=\"group\" aria-label=\"...\" style=\"margin-top: 10px\" value='".$original."'>
+					<div class=\"btn-group\" role=\"group\">
+						<button class=\"btn btn-success\" style=\"padding: 0\"><a class=\"download-button\" href=\"uploads/". $original ."\" download=\"". $firstName ." ". $lastName ."\"><i class=\"glyphicon glyphicon-download-alt\"></i></a></button>
+					</div>
+					<div class=\"btn-group\" role=\"group\">
+						<button class=\"btn btn-default\" onclick=\"editInfo('". $original ."');\"><i class=\"glyphicon glyphicon-pencil\"></i></button>
+					</div>
+					<div class=\"btn-group\" role=\"group\">
+						<button class=\"btn btn-default\" onclick=\"showLightbox('". $original ."', '". $firstName ."', '". $lastName ."', '". $description ."')\"><i class=\"glyphicon glyphicon-picture\"></i></button>
+					</div>
+					<div class=\"btn-group\" role=\"group\">
+						<button class=\"btn btn-danger\" onclick=\"deleteImage('". $original ."')\"><i class=\"glyphicon glyphicon-trash\"></i></button>
+					</div>
+				</div>
 					
-					<div class=\"btn-group btn-group-justified save-cancel\" role=\"group\" aria-label=\"...\" style=\"margin: 10px 0; display: none;\" value='".$original."'>
-						<div class=\"btn-group\" role=\"group\">
-							<button class =\"btn btn-success\" onclick=\"save('". $original ."');\" >Save</button>
-						</div>
-						<div class=\"btn-group\" role=\"group\">
-							<button class =\"btn btn-danger\" onclick=\"document.location.reload(true);\" >Cancel</button>
-						</div>
+				<div class=\"btn-group btn-group-justified save-cancel\" role=\"group\" aria-label=\"...\" style=\"margin-top: 10px; display: none;\" value='".$original."'>
+					<div class=\"btn-group\" role=\"group\">
+						<button class =\"btn btn-success\" onclick=\"save('". $original ."');\" >Save</button>
+					</div>
+					<div class=\"btn-group\" role=\"group\">
+						<button class =\"btn btn-danger\" onclick=\"document.location.reload(true);\" >Cancel</button>
 					</div>
 				</div>
 			</div>

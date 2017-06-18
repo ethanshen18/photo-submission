@@ -100,10 +100,6 @@ function showLightbox(image, firstName, lastName, description) {
 	// upload photo caption
 	document.getElementById("lightbox-text").innerHTML = "<b style='font-size: 20px; line-height: 50px;'>" + firstName + " " + lastName + "</b><br>" + description;
 	
-	document.getElementById("download-button-lightbox").href = "uploads/" + image;
-	
-	document.getElementById("download-button-lightbox").download = firstName + " " + lastName;
-	
 	// set lightbox size and reveal lightbox
 	$(function(){
 		setLightboxSize($(window).width(), $(window).height());
@@ -142,8 +138,6 @@ function setLightboxSize(width, height) {
 	photoContainer.style.height = lightbox.offsetHeight - caption.offsetHeight + "px";
 
 	// positioning previous & next buttons
-	previous.style.left = 20 + "px";
-	next.style.right = 20 + "px";
 	previous.style.top = photoContainer.offsetHeight * 0.5 - 15 + "px";
 	next.style.top = photoContainer.offsetHeight * 0.5 - 15 + "px";
 } // setLightboxSize
@@ -319,7 +313,7 @@ function editInfo(original) {
 	var edit = document.getElementsByClassName(original);
 	var buttonGroup = document.getElementsByClassName("edit-buttons");
 	var saveButton = document.getElementsByClassName("save-cancel");
-	var editorGrid = document.getElementsByClassName("editor-grid");
+	var editorGrid = document.getElementsByClassName("edit-mode-grid");
 	var checkBox = document.getElementsByClassName("check");
 	
 	// enable current input fields
