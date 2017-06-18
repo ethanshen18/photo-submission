@@ -91,4 +91,4 @@
 			<i class="glyphicon glyphicon-menu-up"></i>
 		</button>
 
-		<div class="container-fluid" style="margin-top: 100px; min-height: 800px;">
+		<div class="container-fluid" style="margin-top: 100px; min-height: 600px;">

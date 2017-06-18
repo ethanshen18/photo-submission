@@ -12,6 +12,23 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	margin: 0;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+} ::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+} ::-webkit-scrollbar-thumb {
+	background: #555555;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	transition: 0.2s;
+} ::-webkit-scrollbar-thumb:hover {
+	background: #333333;
 }
 
 h1, h2, h3, h4, h5, h6, button, input, textarea {
@@ -53,7 +70,20 @@ input[type="text"], textarea {
 	display: block;
 	transition: box-shadow 0.2s ease-in-out;
 } input[type="text"]:focus, textarea:focus {
-	box-shadow: inset 0px -3px 0px #4BC970;
+	box-shadow: inset 0px -2px 0px black;
+}
+
+#back-button {
+	text-decoration: none;
+	color: white;
+	line-height: 60px;
+	font-size: 20px;
+	margin-left: 20px;
+}
+
+#submission-text {
+	box-shadow: inset 0px -3px 0px black;
+	line-height: 80px;
 }
 
 .error {
@@ -89,8 +119,8 @@ input[type="text"], textarea {
 	cursor: pointer;
 	position: relative;
 } .checkbox:checked {
-	border: 1px solid #4BC970;
-	background-color: #4BC970;
+	border: 1px solid black;
+	background-color: black;
 } .checkbox:checked:after {
 	content: '\2714';
 	font-size: 18px;
@@ -122,6 +152,7 @@ input[type="text"], textarea {
 } input.radio:empty ~ .radio-text {
 	position: relative;
 	float: left;
+	color: #888;
 	line-height: 2.5em;
 	text-indent: 4em;
 	margin-left: 10%;
@@ -141,16 +172,14 @@ input[type="text"], textarea {
 	content:'\2714';
 	text-indent: .9em;
 	color: white;
-} input.radio:hover:not(:checked) ~ .radio-text {
-	color: #888;
 } input.radio:checked ~ .radio-text:before {
 	content:'\2714';
 	text-indent: .9em;
 	color: white;
-	background-color: #4BC970;
+	background-color: black;
 } input.radio:checked ~ .radio-text {
-	border: 1px solid #4BC970;
-	color: #4BC970;
+	border: 1px solid black;
+	color: black;
 } @media (max-width: 470px) {
 	.radio-text {
 		width: 100px;
@@ -165,11 +194,11 @@ input[type="text"], textarea {
 #upload-button {
 	font-size: 16px;
 	letter-spacing: 2px;
-	border-radius: 2px;
+	border-radius: 3px;
 	width: 100%;
 	padding: 30px;
-	background-color: #4BC970;
-	border: 1px solid #4BC970;
+	background-color: black;
+	border: 1px solid black;
 	color: white;
 	outline: 0;
 	transition: all 0.2s;
@@ -177,8 +206,8 @@ input[type="text"], textarea {
 	cursor: pointer;
 } input[type="file"]:hover + #upload-button, input[type="file"]:focus + #upload-button {
 	text-decoration: none;
-	color: #0C5;
-	border-color: #0C5;
+	color: black;
+	border-color: black;
 	background: white;
 } #upload-button span {
 	display: inline-block;
@@ -203,54 +232,40 @@ input[type="text"], textarea {
 } input[type="file"]:hover + #upload-button span:after, input[type="file"]:focus + #upload-button span:after {
 	transition: opacity 0.5s, top 0.5s, right 0.5s;
 	opacity: 1;
-	border-color: #0C5;
+	border-color: black;
 	right: 0;
 	top: 50%;
 }
 
 .form-buttons {
+	color: white;
 	font-size: 16px;
 	letter-spacing: 2px;
-	border-radius: 2px;
+	border-radius: 3px;
 	text-align: center;
 	border: none;
 	outline: 0;
+	padding: 20px;
+	width: 49%;
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 	cursor: pointer;
+	border: 1px solid black;
+	background-color: black;
 	transition: all 0.2s ease-in-out;
 } #submit-button {
-	color: white;
 	padding: 30px;
+	margin-bottom: 10px;
 	width: 100%;
-	border: 1px solid #4BC970;
-	background-color: #4BC970;
-} #submit-button:hover, #submit-button:focus {
-	color: #4BC970;
-	background-color: white;
 } #view-button {
-	padding: 20px;
-	width: 48%;
 	float: left;
-	margin-bottom: 60px;
-	color: white;
-	border: 1px solid #BABABA;
-	background-color: #BABABA;
-} #view-button:hover, #view-button:focus {
-	color: #BABABA;
-	background-color: white;
 } #reset-button {
-	padding: 20px;
-	width: 48%;
 	float: right;
-	margin-bottom: 60px;
-	color: white;
-	border: 1px solid #BABABA;
-	background-color: #BABABA;
-} #reset-button:hover, #reset-button:focus {
-	color: #BABABA;
+} #submit-button:hover, #submit-button:focus, #view-button:hover, #view-button:focus, #reset-button:hover, #reset-button:focus {
+	color: black;
+	border: 1px solid black;
 	background-color: white;
-}
+} 
 
 fieldset, legend {
 	margin-top: 30px;

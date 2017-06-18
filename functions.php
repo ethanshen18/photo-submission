@@ -200,6 +200,13 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 		else if ($isEditor && $view == "approval") approvalMode($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description, $tags);
 		else publicGallery($original, "thumbnails/thumb_" . $original, $firstName, $lastName, $description);
 	} // for
+
+	// no results found
+	if (sizeof($phparraySorted) == 0) {
+		echo "<div style='text-align: center; line-height: 400px; font-size: 20px;'>";
+		echo "No Images";
+		echo "</div>";
+	} // if
 } // displayThumbnails
 
 // generate public gallery

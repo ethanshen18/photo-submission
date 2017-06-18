@@ -10,8 +10,11 @@
 	</head>
 
 	<body ontouchstart>
+		<div style="background: black"><a href="index.php" id="back-button">BACK</a></div>
+
+
 		<form method="post"  enctype="multipart/form-data">
-			<h1>SUBMISSION</h1>
+			<h1 id="submission-text">SUBMISSION</h1>
 
 			<fieldset>
 				<legend>Basic Info</legend>
@@ -67,7 +70,7 @@
 
 			<div>
 				<button type="submit" name="submit" value="submit" id="submit-button" class="form-buttons">SUBMIT</button>
-				<button type="view" name="view" value="view" id="view-button" class="form-buttons">ALBUM</button>
+				<button type="view" name="view" value="view" id="view-button" class="form-buttons">CANCEL</button>
 				<button type="reset" name="reset" value="reset" id="reset-button" class="form-buttons">RESET</button>
 			</div>
 		</form>

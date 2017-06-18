@@ -23,7 +23,7 @@ $zip->close();
 
 // send the file to the browser as a download
 header("Content-Disposition: attachment; filename=\"". $filename ."\"");
-header('Content-type: application/zip');
+header("Content-type: application/zip");
 readfile($filename);
 
 // remove server file
