@@ -1,180 +1,18 @@
 [
     {
-        "firstName": "Fred",
-        "lastName": "Smith",
-        "fileToUpload": "59182259eb3b4.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "firstName": "asd",
+        "lastName": "aSD",
+        "fileToUpload": "59d7cf6e29836.jpg",
+        "description": "ASDF",
         "copyright": "on",
         "access": "public",
         "approved": false
     },
     {
-        "firstName": "Ethan",
-        "lastName": "Shen",
-        "fileToUpload": "59182282e08e4.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": true
-    },
-    {
-        "firstName": "Donald",
-        "lastName": "Trump",
-        "fileToUpload": "591822a334b4c.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "Christopher",
-        "lastName": "Nolan",
-        "fileToUpload": "591822c410087.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "Harris",
-        "lastName": "Zheng",
-        "fileToUpload": "591822e2148f7.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": false
-    },
-    {
-        "firstName": "Terry",
-        "lastName": "Fox",
-        "fileToUpload": "5918231537612.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "Ed",
-        "lastName": "Baker",
-        "fileToUpload": "5918234470c9d.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": false
-    },
-    {
-        "firstName": "Roger",
-        "lastName": "Federer",
-        "fileToUpload": "591823666386e.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": true
-    },
-    {
-        "firstName": "Rafa",
-        "lastName": "Nadal",
-        "fileToUpload": "59182384f3c58.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "John",
-        "lastName": "Snow",
-        "fileToUpload": "591823e6ede59.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": false
-    },
-    {
-        "firstName": "Jackie",
-        "lastName": "Chen",
-        "fileToUpload": "5918240dde2ec.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "Mary",
-        "lastName": "Jean",
-        "fileToUpload": "5918242e285bc.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": false
-    },
-    {
-        "firstName": "Ouye",
-        "lastName": "Chen",
-        "fileToUpload": "5918245f0c928.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": true
-    },
-    {
-        "firstName": "Chuck",
-        "lastName": "Wan",
-        "fileToUpload": "5918247ebee57.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": false
-    },
-    {
-        "firstName": "Helen",
-        "lastName": "Khau",
-        "fileToUpload": "591824aa3c231.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "Bradley",
-        "lastName": "Hartley",
-        "fileToUpload": "591824ec5a578.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": true
-    },
-    {
-        "firstName": "Taylor",
-        "lastName": "Swift",
-        "fileToUpload": "5918252886f87.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "Barack",
-        "lastName": "Obama",
-        "fileToUpload": "591825517f291.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "public",
-        "approved": false
-    },
-    {
-        "firstName": "Ashley",
-        "lastName": "Gale",
-        "fileToUpload": "5918257cee472.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "copyright": "on",
-        "access": "private",
-        "approved": false
-    },
-    {
-        "firstName": "Steve",
-        "lastName": "Jobs",
-        "fileToUpload": "5918259b9a05d.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "firstName": "asdf",
+        "lastName": "asdf",
+        "fileToUpload": "59d7d10089607.jpg",
+        "description": "asdf",
         "copyright": "on",
         "access": "public",
         "approved": false

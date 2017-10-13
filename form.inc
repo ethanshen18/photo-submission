@@ -13,7 +13,7 @@
 		<div style="background: black"><a href="index.php" id="back-button">BACK</a></div>
 
 
-		<form method="post"  enctype="multipart/form-data">
+		<form method="post" enctype="multipart/form-data">
 			<h1 id="submission-text">SUBMISSION</h1>
 
 			<fieldset>
@@ -55,6 +55,11 @@
 				<?php if ($accessError != "") echo "<span class='error'>$accessError</span>"; ?>
 				</legend>
 
+				<div style="font-size: 12px; display: block; color: #888;">
+					Public - image will display in public library after approval<br>
+					Private - image will only be visible to moderators<br><br>
+				</div>
+
 				<span>
 					<input type="radio" value="public" name="access" id="radio1" class="radio" <?php if (isset($access) && $access=="public") echo "checked";?>>
 					<label for="radio1" class="radio-text">Public</label>
@@ -64,6 +69,8 @@
 					<input type="radio" value="private" name="access" id="radio2" class="radio" <?php if (isset($access) && $access=="private") echo "checked";?>>
 					<label for="radio2" class="radio-text">Private</label>
 				</span>
+
+				
 			</fieldset>
 
 			<div>

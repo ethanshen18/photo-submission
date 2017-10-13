@@ -2,9 +2,10 @@
 
 // new session
 session_start();
-$isEditor = true;
+if ($_SESSION["isEditor"] || $_SESSION["isAdmin"]) $isEditor = true;
+else $isEditor = false;
 
-// URL variables
+// get array variables
 $sort = "";
 $search = "";
 $display = "";
@@ -43,7 +44,5 @@ displayThumbnails($sort, $search, $display, $isEditor, $view);
 
 // display footer
 include "footer.inc";
-
-//downloadAll();
 
 ?>

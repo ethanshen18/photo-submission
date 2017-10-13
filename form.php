@@ -65,10 +65,13 @@ if ($submit == "submit") {
 	} // if
 
 	// process user info if no error detected
-	if ($firstNameError == null && $lastNameError == null && $fileError == null && $descriptionError == null && $copyrightError == null && $accessError == null) newSubmission($firstName, $lastName, $newFileName, $description, $copyright, $access);
+	if ($firstNameError == null && $lastNameError == null && $fileError == null && $descriptionError == null && $copyrightError == null && $accessError == null) {
+
+		newSubmission($firstName, $lastName, $newFileName, $description, $copyright, $access);
+		header('Location: message.php?image='.$newFileName);
 
 	// display form if error detected
-	else include 'form.inc';
+	} else include 'form.inc';
 
 // view album
 } else if ($view == "view"){

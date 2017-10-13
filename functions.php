@@ -130,8 +130,7 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 	for ($i = 0; $i < sizeof($phparray); $i++) {
 
 		// get info from json file
-		$firstNameCheck = strtolower($phparraySorted [$i] ["firstName"]);
-		$lastNameCheck = strtolower($phparraySorted [$i] ["lastName"]);
+		$nameSearch = strtolower($phparraySorted [$i] ["firstName"]) ." ". strtolower($phparraySorted [$i] ["lastName"]);
 		$access = $phparraySorted [$i] ["access"];
 		$approved = $phparraySorted [$i] ["approved"];
 
@@ -152,13 +151,11 @@ function displayThumbnails($sort, $search, $display, $isEditor, $view) {
 			} //if else
 		} // if else
 		
-		// check photo access and search results
-		if (!empty($display) && $access != $display) {
-			unset($phparraySorted [$i]);
-		} else if (!empty($search)) {
-			if (strpos($firstNameCheck, $search) === false && strpos($lastNameCheck, $search) === false)
-				unset($phparraySorted [$i]);
-		} // if
+		// filter photo access
+		if (!empty($display) && $access != $display) unset($phparraySorted [$i]);
+
+		// filter search results
+		else if (!empty($search) && strpos($nameSearch, $search) === false) unset($phparraySorted [$i]);
 	} // for
 
 	// reindex array
