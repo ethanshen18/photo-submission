@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-		<title>Grad 2018 Baby Photo</title>
+		<title>Photo Submission</title>
 		<link rel="shortcut icon" type="image/ico" href="images/baby.ico">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
 				<button class="navbar-toggle main-toggle" data-toggle="collapse" data-target="#myNavbar">
 					<i class="glyphicon glyphicon-menu-hamburger"></i>
 				</button>
-				<a href="index.php" id="site-name"><i class="glyphicon glyphicon-picture"></i> GRAD BABY PHOTO</a>
+				<a href="index.php" id="site-name"><i class="glyphicon glyphicon-picture"></i> PHOTO SUBMISSION</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<form class="navbar-form navbar-right"  method="post">

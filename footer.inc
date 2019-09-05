@@ -1,6 +1,6 @@
 		</div>
 
-		<div id="footer">© <?php echo date("Y"); ?> Mount Douglas Secondary School</div>
+		<div id="footer">© <?php echo date("Y"); ?> Ethan Shen</div>
 		
 		<script src="gallery.js"></script>
 	</body>
