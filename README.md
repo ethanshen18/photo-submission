@@ -2,19 +2,23 @@
 
 This is a PHP based dynamic web application that allows users to upload photos and moderators to screen the photos (approve or reject). This site has two different user interfaces for the public and moderator logins. The project is designed and programmed by me from scratch including the back-end scripts and front-end UI components.
 
-Highlight Functionalities: 
+## Highlight Functionalities 
 
-  Responsive Design (Touch Screen Friendly)
+Responsive Design (Touch Screen Friendly)
 
-  Dynamic Server-Side PHP Scripts
+Dynamic Server-Side PHP Scripts
 
-  Search & Sort Gallery Options
+Search & Sort Gallery Options
 
-  Multi-Selection
+Multi-Selection
 
-  Zip File Download
+Zip File Download
+
+## Current Use
 
 This site is currently being used by Mount Douglas Secondary School's Yearbook Administration to gather photos for their Editors. It is visited by thousands of students and faculty members each year. (School Reference: Lara Wear)
+
+## Demo
 
 Please visit the link below for an interactive project showcase that demonstrates the functionality of this website. 
 
