@@ -18,9 +18,3 @@ Zip File Download
 ## Current Use
 
 This site is currently being used by Mount Douglas Secondary School's Yearbook Administration to gather photos for their Editors. It is visited by thousands of students and faculty members each year. (School Reference: Lara Wear)
-
-## Demo
-
-Please visit the link below for an interactive project showcase that demonstrates the functionality of this website. 
-
-https://ethanshen18.wixsite.com/projects
