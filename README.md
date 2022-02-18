@@ -4,7 +4,7 @@
 
 This is a PHP based dynamic web application that allows users to upload photos and moderators to screen the photos (approve or reject). This site has two different user interfaces for the public and moderator logins. The project is designed and programmed by me from scratch including the back-end scripts and front-end UI components.
 
-## Highlight Functionalities 
+## Highlight Features
 
 Responsive Design (Touch Screen Friendly)
 
